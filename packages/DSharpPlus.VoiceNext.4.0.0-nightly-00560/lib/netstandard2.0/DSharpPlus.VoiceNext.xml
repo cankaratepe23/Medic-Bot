@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DSharpPlus.VoiceNext</name>
+    </assembly>
+    <members>
+        <member name="M:DSharpPlus.VoiceNext.DiscordClientExtensions.UseVoiceNext(DSharpPlus.DiscordClient)">
+            <summary>
+            Creates a new VoiceNext client with default settings.
+            </summary>
+            <param name="client">Discord client to create VoiceNext instance for.</param>
+            <returns>VoiceNext client instance.</returns>
+        </member>
+        <member name="M:DSharpPlus.VoiceNext.DiscordClientExtensions.UseVoiceNext(DSharpPlus.DiscordClient,DSharpPlus.VoiceNext.VoiceNextConfiguration)">
+            <summary>
+            Creates a new VoiceNext client with specified settings.
+            </summary>
+            <param name="client">Discord client to create VoiceNext instance for.</param>
+            <param name="config">Configuration for the VoiceNext client.</param>
+            <returns>VoiceNext client instance.</returns>
+        </member>
+        <member name="M:DSharpPlus.VoiceNext.DiscordClientExtensions.UseVoiceNextAsync(DSharpPlus.DiscordShardedClient,DSharpPlus.VoiceNext.VoiceNextConfiguration)">
+            <summary>
+            Creates new VoiceNext clients on all shards in a given sharded client.
+            </summary>
+            <param name="client">Discord sharded client to create VoiceNext instances for.</param>
+            <param name="config">Configuration for the VoiceNext clients.</param>
+            <returns>A dictionary of created VoiceNext clients.</returns>
+        </member>
+        <member name="M:DSharpPlus.VoiceNext.DiscordClientExtensions.GetVoiceNext(DSharpPlus.DiscordClient)">
+            <summary>
+            Gets the active instance of VoiceNext client for the DiscordClient.
+            </summary>
+            <param name="client">Discord client to get VoiceNext instance for.</param>
+            <returns>VoiceNext client instance.</returns>
+        </member>
+        <member name="M:DSharpPlus.VoiceNext.DiscordClientExtensions.ConnectAsync(DSharpPlus.Entities.DiscordChannel)">
+            <summary>
+            Connects to this voice channel using VoiceNext.
+            </summary>
+            <param name="channel">Channel to connect to.</param>
+            <returns>If successful, the VoiceNext connection.</returns>
+        </member>
+        <member name="T:DSharpPlus.VoiceNext.EventArgs.VoiceUserLeaveEventArgs">
+            <summary>
+            Arguments for <see cref="E:DSharpPlus.VoiceNext.VoiceNextConnection.UserLeft"/>.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.VoiceNext.EventArgs.VoiceUserLeaveEventArgs.User">
+            <summary>
+            Gets the user that left voice chat.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.VoiceNext.VoiceNextConfiguration">
+            <summary>
+            VoiceNext client configuration.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.VoiceNext.VoiceNextConfiguration.VoiceApplication">
+            <summary>
+            <para>Sets the encoding settings for this client. This decides whether the encoder will favour quality or smaller bandwidth.</para>
+            <para>Defaults to <see cref="F:DSharpPlus.VoiceNext.Codec.VoiceApplication.Music"/>.</para>
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.VoiceNext.VoiceNextConfiguration.EnableIncoming">
+            <summary>
+            <para>Sets whether incoming voice receiver should be enabled.</para>
+            <para>Defaults to false.</para>
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.VoiceNext.VoiceNextConfiguration.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:DSharpPlus.VoiceNext.VoiceNextConfiguration"/>.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.VoiceNext.VoiceNextConfiguration.#ctor(DSharpPlus.VoiceNext.VoiceNextConfiguration)">
+            <summary>
+            Creates a new instance of <see cref="T:DSharpPlus.VoiceNext.VoiceNextConfiguration"/>, copying the properties of another configuration.
+            </summary>
+            <param name="other">Configuration the properties of which are to be copied.</param>
+        </member>
+        <member name="T:DSharpPlus.VoiceNext.VoiceNextConnection">
+            <summary>
+            VoiceNext connection to a voice channel.
+            </summary>
+        </member>
+        <member name="E:DSharpPlus.VoiceNext.VoiceNextConnection.UserSpeaking">
+            <summary>
+            Triggered whenever a user speaks in the connected voice channel.
+            </summary>
+        </member>
+        <member name="E:DSharpPlus.VoiceNext.VoiceNextConnection.UserLeft">
+            <summary>
+            Triggered whenever a user leaves voice in the connected guild.
+            </summary>
+        </member>
+        <member name="E:DSharpPlus.VoiceNext.VoiceNextConnection.VoiceReceived">
+            <summary>
+            Triggered whenever voice data is received from the connected voice channel.
+            </summary>
+        </member>
+        <member name="E:DSharpPlus.VoiceNext.VoiceNextConnection.VoiceSocketErrored">
+            <summary>
+            Triggered whenever voice WebSocket throws an exception.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.VoiceNext.VoiceNextConnection.IsPlaying">
+            <summary>
+            Gets whether this connection is still playing audio.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.VoiceNext.VoiceNextConnection.Ping">
+            <summary>
+            Gets the websocket round-trip time in ms.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.VoiceNext.VoiceNextConnection.Channel">
+            <summary>
+            Gets the channel this voice client is connected to.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.VoiceNext.VoiceNextConnection.ConnectAsync">
+            <summary>
+            Connects to the specified voice channel.
+            </summary>
+            <returns>A task representing the connection operation.</returns>
+        </member>
+        <member name="M:DSharpPlus.VoiceNext.VoiceNextConnection.SendAsync(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Encodes, encrypts, and sends the provided PCM data to the connected voice channel.
+            </summary>
+            <param name="pcmData">PCM data to encode, encrypt, and send.</param>
+            <param name="blockSize">Millisecond length of the PCM data.</param>
+            <param name="bitRate">Bitrate of the PCM data.</param>
+            <returns>Task representing the sending operation.</returns>
+        </member>
+        <member name="M:DSharpPlus.VoiceNext.VoiceNextConnection.SendSpeakingAsync(System.Boolean)">
+            <summary>
+            Sends a speaking status to the connected voice channel.
+            </summary>
+            <param name="speaking">Whether the current user is speaking or not.</param>
+            <returns>A task representing the sending operation.</returns>
+        </member>
+        <member name="M:DSharpPlus.VoiceNext.VoiceNextConnection.WaitForPlaybackFinishAsync">
+            <summary>
+            Asynchronously waits for playback to be finished. Playback is finished when speaking = false is signalled.
+            </summary>
+            <returns>A task representing the waiting operation.</returns>
+        </member>
+        <member name="M:DSharpPlus.VoiceNext.VoiceNextConnection.Disconnect">
+            <summary>
+            Disconnects and disposes this voice connection.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.VoiceNext.VoiceNextConnection.Dispose">
+            <summary>
+            Disconnects and disposes this voice connection.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.VoiceNext.VoiceNextExtension">
+            <summary>
+            Represents VoiceNext extension, which acts as Discord voice client.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.VoiceNext.VoiceNextExtension.IsIncomingEnabled">
+            <summary>
+            Gets whether this connection has incoming voice enabled.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.VoiceNext.VoiceNextExtension.Setup(DSharpPlus.DiscordClient)">
+            <summary>
+            DO NOT USE THIS MANUALLY.
+            </summary>
+            <param name="client">DO NOT USE THIS MANUALLY.</param>
+            <exception cref="T:System.InvalidOperationException"/>
+        </member>
+        <member name="M:DSharpPlus.VoiceNext.VoiceNextExtension.ConnectAsync(DSharpPlus.Entities.DiscordChannel)">
+            <summary>
+            Create a VoiceNext connection for the specified channel.
+            </summary>
+            <param name="channel">Channel to connect to.</param>
+            <returns>VoiceNext connection for this channel.</returns>
+        </member>
+        <member name="M:DSharpPlus.VoiceNext.VoiceNextExtension.GetConnection(DSharpPlus.Entities.DiscordGuild)">
+            <summary>
+            Gets a VoiceNext connection for specified guild.
+            </summary>
+            <param name="guild">Guild to get VoiceNext connection for.</param>
+            <returns>VoiceNext connection for the specified guild.</returns>
+        </member>
+    </members>
+</doc>

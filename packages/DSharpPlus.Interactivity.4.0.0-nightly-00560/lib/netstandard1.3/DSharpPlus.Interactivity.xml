@@ -1,0 +1,459 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DSharpPlus.Interactivity</name>
+    </assembly>
+    <members>
+        <member name="P:DSharpPlus.Interactivity.MessageContext.Message">
+            <summary>
+            Message that was found
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.MessageContext.User">
+            <summary>
+            User that was found
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.MessageContext.Channel">
+            <summary>
+            Channel that was found
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.MessageContext.Guild">
+            <summary>
+            Guild that was found
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.MessageContext.Interactivity">
+            <summary>
+            Interactivity extension that found this context
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.MessageContext.Client">
+            <summary>
+            Discordclient this context belongs to
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.MessageContext.MentionedChannels">
+            <summary>
+            Channels that were mentioned
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.MessageContext.MentionedRoles">
+            <summary>
+            Roles that were mentioned
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.MessageContext.MentionedUsers">
+            <summary>
+            Users that were mentioned
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.PaginationEmojis">
+            <summary>
+            Emojis to use for pagination
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.PaginationEmojis.Left">
+            <summary>
+            Emoji for going back 1 page in the message
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.PaginationEmojis.Right">
+            <summary>
+            Emoji for going forward 1 page in the message
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.PaginationEmojis.Stop">
+            <summary>
+            Emoji to stop pagination
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.PaginationEmojis.SkipLeft">
+            <summary>
+            Emoji to skip all the way to the first page
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.PaginationEmojis.SkipRight">
+            <summary>
+            Emoji to skip all the way to the last page
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.ReactionCollectionContext">
+            <summary>
+            Reactions that were collected
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.ReactionCollectionContext.Reactions">
+            <summary>
+            Received reactions
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.ReactionCollectionContext.Interactivity">
+            <summary>
+            Interactivity extension responsible
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.ReactionCollectionContext.Client">
+            <summary>
+            Client that was listened to
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.ReactionContext">
+            <summary>
+            Context of a reaction
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.ReactionContext.Channel">
+            <summary>
+            Channel reaction was sent in
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.ReactionContext.User">
+            <summary>
+            User that sent a reaction
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.ReactionContext.Emoji">
+            <summary>
+            Emoji that was sent
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.ReactionContext.Message">
+            <summary>
+            Message that was sent
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.ReactionContext.Guild">
+            <summary>
+            Guild this all found place in
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.ReactionContext.Interactivity">
+            <summary>
+            Responsible interactivity extension
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.ReactionContext.Client">
+            <summary>
+            Client that was listened to
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.TypingContext">
+            <summary>
+            Context about a typing user
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.TypingContext.User">
+            <summary>
+            User that was typing
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.TypingContext.Channel">
+            <summary>
+            Channel the user was typing in
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.TypingContext.StartedAt">
+            <summary>
+            WHen the user started typing
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.TypingContext.Guild">
+            <summary>
+            Guild the user was typing in
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.TypingContext.Interactivity">
+            <summary>
+            Responsible interactivity extension
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.TypingContext.Client">
+            <summary>
+            Client that was listened to
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.InteractivityConfiguration">
+            <summary>
+            Configuration class for your Interactivity extension
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.Timeout">
+            <summary>
+            <para>Sets the default interactivity action timeout.</para>
+            <para>Defaults to 1 minute.</para>
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.PaginationTimeout">
+            <summary>
+            <para>Sets the default pagination timeout.</para>
+            <para>Defaults to 2 minutes.</para>
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.PaginationBehavior">
+            <summary>
+            <para>Sets the default pagination timeout behaviour.</para>
+            <para>Defaults to <see cref="F:DSharpPlus.Interactivity.TimeoutBehaviour.Ignore"/>.</para>
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityConfiguration.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityConfiguration.#ctor(DSharpPlus.Interactivity.InteractivityConfiguration)">
+            <summary>
+            Creates a new instance of <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>, copying the properties of another configuration.
+            </summary>
+            <param name="other">Configuration the properties of which are to be copied.</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtensionMethods.WaitForMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Func{System.String,System.Boolean},System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a message to be received
+            </summary>
+            <param name="chn">Channel to listen to</param>
+            <param name="user">User to check for</param>
+            <param name="contentpredicate">Predicate for message content</param>
+            <param name="timeoutoverride">Timeout override</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtensionMethods.WaitForReactionAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,DSharpPlus.Entities.DiscordEmoji,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a reaction
+            </summary>
+            <param name="mes">Message to wait on</param>
+            <param name="user">User reaction should belong to</param>
+            <param name="emoji">Emoji to listen for</param>
+            <param name="timeoutoverride">Timeout override</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtensionMethods.WaitForAnyReactionAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordEmoji,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for any reaction
+            </summary>
+            <param name="mes">Message to listen on</param>
+            <param name="emoji">Emoji to listen for</param>
+            <param name="timeoutoverride">Timeout override</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtensionMethods.MakePoll(DSharpPlus.Entities.DiscordMessage,System.Collections.Generic.IEnumerable{DSharpPlus.Entities.DiscordEmoji},System.Nullable{System.TimeSpan})">
+            <summary>
+            Makes a poll
+            </summary>
+            <param name="mes">Message to make a poll on</param>
+            <param name="emojis">Emojis to poll</param>
+            <param name="timeoutoverride">Timeout override</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtensionMethods.CollectReactions(DSharpPlus.Entities.DiscordMessage,System.Nullable{System.TimeSpan})">
+            <summary>
+            Collects all reactions
+            </summary>
+            <param name="mes">Message reactions are collected from</param>
+            <param name="timeoutoverride">Timeout override</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtensionMethods.SendPaginatedMessage(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},DSharpPlus.Interactivity.PaginationEmojis,System.Nullable{System.TimeSpan},System.Nullable{DSharpPlus.Interactivity.TimeoutBehaviour})">
+            <summary>
+            Sends paginated message
+            </summary>
+            <param name="chn">Channel to send to</param>
+            <param name="user">User that is allowed to interact with this paginated message</param>
+            <param name="pages">Message pages</param>
+            <param name="emojis">Pagination emojis</param>
+            <param name="timeoutoverride">Timeout override</param>
+            <param name="timeoutbehaviouroverride">Timeout behaviour override</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtensionMethods.RespondPaginated(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},DSharpPlus.Interactivity.PaginationEmojis,System.Nullable{System.TimeSpan},System.Nullable{DSharpPlus.Interactivity.TimeoutBehaviour})">
+            <summary>
+            Responds with a paginated message
+            </summary>
+            <param name="mes">Message that is responded to</param>
+            <param name="user">User that is allowed to interact with this paginated message</param>
+            <param name="pages">Message pages</param>
+            <param name="emojis">Pagination emojis</param>
+            <param name="timeoutoverride">Timeout override</param>
+            <param name="timeoutbehaviouroverride">Timeout behaviour override</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync(System.Func{DSharpPlus.Entities.DiscordMessage,System.Boolean},System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a message to be received
+            </summary>
+            <param name="predicate">Expected predicate</param>
+            <param name="timeoutoverride">Timeout override</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DSharpPlus.Entities.DiscordEmoji,System.Boolean},System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a reaction to be received
+            </summary>
+            <param name="predicate">Expected predicate</param>
+            <param name="timeoutoverride">TImeout override</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DSharpPlus.Entities.DiscordEmoji,System.Boolean},DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Wait for a reaction by a specific user to be received
+            </summary>
+            <param name="predicate">Expected predicate</param>
+            <param name="user">User that sends the reaction</param>
+            <param name="timeoutoverride">Timeout override</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageReactionAsync(System.Func{DSharpPlus.Entities.DiscordEmoji,System.Boolean},DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Wait for a reaction on a specific message by a specific user
+            </summary>
+            <param name="predicate">Expected predicate</param>
+            <param name="message">Message reaction has to be placed on</param>
+            <param name="user">User reaction was sent by</param>
+            <param name="timeoutoverride">Timeout override</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageReactionAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Wait for any reaction on a specific message
+            </summary>
+            <param name="message">Message to check</param>
+            <param name="user">(optional) User override</param>
+            <param name="timeoutoverride">Timeout override</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.CreatePollAsync(DSharpPlus.Entities.DiscordMessage,System.Collections.Generic.IEnumerable{DSharpPlus.Entities.DiscordEmoji},System.Nullable{System.TimeSpan})">
+            <summary>
+            Creates a poll
+            </summary>
+            <param name="message">Message poll belongs to</param>
+            <param name="emojis">Emojis to poll</param>
+            <param name="timeoutoverride">Timeout override</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.CollectReactionsAsync(DSharpPlus.Entities.DiscordMessage,System.Nullable{System.TimeSpan})">
+            <summary>
+            Collects all reactions on a message
+            </summary>
+            <param name="message">Message to check</param>
+            <param name="timeoutoverride">Timeout override</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForTypingUserAsync(DSharpPlus.Entities.DiscordChannel,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for any user to start typing
+            </summary>
+            <param name="channel">Channel to check</param>
+            <param name="timeoutoverride">Timeout override</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForTypingChannelAsync(DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a user to type in any channel
+            </summary>
+            <param name="user">User to check</param>
+            <param name="timeoutoverride">Timeout override</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedMessage(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},System.Nullable{System.TimeSpan},System.Nullable{DSharpPlus.Interactivity.TimeoutBehaviour},DSharpPlus.Interactivity.PaginationEmojis)">
+            <summary>
+            Sends a paginated message
+            </summary>
+            <param name="channel">Channel to send message to</param>
+            <param name="user">User that may interact with this paginated message</param>
+            <param name="message_pages">Pages for this message</param>
+            <param name="timeoutoverride">Timeout override</param>
+            <param name="timeoutbehaviouroverride">Timeout behaviour override</param>
+            <param name="emojis">Pagination emoji override</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInEmbeds(System.String)">
+            <summary>
+            Generates pages in embeds from a long input string
+            </summary>
+            <param name="input">Input string</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInStrings(System.String)">
+            <summary>
+            Generates pages in strings from a long input string
+            </summary>
+            <param name="input">Input string</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.GeneratePaginationReactions(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Interactivity.PaginationEmojis)">
+            <summary>
+            Generates pagination reactions
+            </summary>
+            <param name="message">Message to attach reactions to</param>
+            <param name="emojis">Emojis to attach</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.DoPagination(DSharpPlus.Entities.DiscordEmoji,DSharpPlus.Entities.DiscordMessage,DSharpPlus.Interactivity.PaginatedMessage,System.Threading.CancellationTokenSource,DSharpPlus.Interactivity.PaginationEmojis)">
+            <summary>
+            Does pagination (for custom handling)
+            </summary>
+            <param name="emoji">Emoji that was received</param>
+            <param name="message">Message reaction belongs to</param>
+            <param name="paginatedmessage">Paginated message</param>
+            <param name="canceltoken">Cancellation token source</param>
+            <param name="emojis">Pagination emoji collection</param>
+            <returns></returns>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.TimeoutBehaviour">
+            <summary>
+            Different kinds of behaviour on pagination timeout
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.TimeoutBehaviour.Ignore">
+            <summary>
+            Interactivity ignores message after timeout. No actions are performed
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.TimeoutBehaviour.DeleteReactions">
+            <summary>
+            Interactivity removes all reactions after timeout
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.TimeoutBehaviour.DeleteMessage">
+            <summary>
+            Interactivity deletes the message after timeout
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.PaginatedMessage">
+            <summary>
+            Information about the paginated message
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.PaginatedMessage.Pages">
+            <summary>
+            Pages that belong to this message
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.PaginatedMessage.CurrentIndex">
+            <summary>
+            Messages current index
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.PaginatedMessage.Timeout">
+            <summary>
+            Messages timeout
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.Page">
+            <summary>
+            One page. This is essentially the "unpaginated" message. Usually you have multiple of these.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.Page.Content">
+            <summary>
+            Regular text content
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.Page.Embed">
+            <summary>
+            Embed content
+            </summary>
+        </member>
+    </members>
+</doc>

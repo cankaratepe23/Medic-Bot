@@ -1,0 +1,114 @@
+
+28.08.2018 22:21:37 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://m.youtube.com/watch?v=zfoVqAt0lIM 12 7 F1
+28.08.2018 22:21:44 || ADD: Added F1 FROM https://m.youtube.com/watch?v=zfoVqAt0lIM
+28.08.2018 22:28:06 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/853xmlimrqg 0 5 case_deneme
+28.08.2018 22:28:11 || ADD: Added case_deneme FROM https://youtu.be/853xmlimrqg
+28.08.2018 22:28:20 || DELETE: Delete command triggered BY Medic(134336937224830977) :: #delete
+28.08.2018 22:28:25 || DELETE: Delete command triggered BY Medic(134336937224830977) :: #delete case_deneme
+28.08.2018 22:28:26 || DELETE: FILE case_deneme deleted BY Medic(134336937224830977)
+28.08.2018 22:31:18 || ADD: Add command triggered BY Medic(134336937224830977) :: #Ekle https://youtu.be/853xmlimrqg 0 5 case_deneme
+28.08.2018 22:31:23 || ADD: Added case_deneme FROM https://youtu.be/853xmlimrqg
+28.08.2018 22:31:47 || ADD: Add command triggered BY Medic(134336937224830977) :: #Ekle https://m.youtube.com/watch?v=zfoVqAt0lIM 12 7 F1
+28.08.2018 22:31:54 || ADD: Added F1 FROM https://m.youtube.com/watch?v=zfoVqAt0lIM
+28.08.2018 22:48:27 || ADD: Add command triggered BY Medic(134336937224830977) :: #Ekle https://m.youtube.com/watch?v=zfoVqAt0lIM 12 7 F1
+28.08.2018 22:48:58 || ADD: Added F1 FROM https://m.youtube.com/watch?v=zfoVqAt0lIM
+28.08.2018 22:51:04 || ADD: Add command triggered BY G7khan(271060547825434635) :: #Ekle https://m.youtube.com/watch?v=zfoVqAt0lIM 12 7 F1
+28.08.2018 22:54:12 || INTRO: F1 set as intro FOR G7khan(271060547825434635)
+14.09.2018 01:10:24 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/eTko_0VZXT4 92 3 kikiki
+14.09.2018 01:10:38 || ADD: Added kikiki FROM https://youtu.be/eTko_0VZXT4
+14.09.2018 01:11:10 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/eTko_0VZXT4 92 2.5 kikiki
+14.09.2018 01:11:10 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR kikiki
+14.09.2018 01:11:10 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/eTko_0VZXT4 92 2.5 kikiki
+14.09.2018 01:11:22 || ADD: Added kikiki FROM https://youtu.be/eTko_0VZXT4
+15.09.2018 23:01:44 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/jstRUFnTn28 0 244 kandırdım_full
+15.09.2018 23:02:04 || ADD: Added kandırdım_full FROM https://youtu.be/jstRUFnTn28
+2.10.2018 21:56:59 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/J3xO5YTznAc 2 4 jaho alkış
+2.10.2018 21:57:03 || ADD: Added jaho alkış FROM https://youtu.be/J3xO5YTznAc
+2.10.2018 21:57:44 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/J3xO5YTznAc 2.3 4.4 jaho alkış
+2.10.2018 21:57:45 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR jaho alkış
+2.10.2018 21:57:45 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/J3xO5YTznAc 2.3 4.4 jaho alkış
+2.10.2018 21:57:50 || ADD: Added jaho alkış FROM https://youtu.be/J3xO5YTznAc
+2.10.2018 21:58:11 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/J3xO5YTznAc 2.4 4.6 jaho alkış
+2.10.2018 21:58:11 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR jaho alkış
+2.10.2018 21:58:11 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/J3xO5YTznAc 2.4 4.6 jaho alkış
+2.10.2018 21:58:16 || ADD: Added jaho alkış FROM https://youtu.be/J3xO5YTznAc
+2.10.2018 21:58:35 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/J3xO5YTznAc 2.5 4.6 jaho alkış
+2.10.2018 21:58:35 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR jaho alkış
+2.10.2018 21:58:35 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/J3xO5YTznAc 2.5 4.6 jaho alkış
+2.10.2018 21:58:40 || ADD: Added jaho alkış FROM https://youtu.be/J3xO5YTznAc
+2.10.2018 21:58:50 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/J3xO5YTznAc 2.6 4.7 jaho alkış
+2.10.2018 21:58:51 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR jaho alkış
+2.10.2018 21:58:51 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/J3xO5YTznAc 2.6 4.7 jaho alkış
+2.10.2018 21:58:56 || ADD: Added jaho alkış FROM https://youtu.be/J3xO5YTznAc
+2.10.2018 21:59:12 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/J3xO5YTznAc 2.7 4.7 jaho alkış
+2.10.2018 21:59:12 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR jaho alkış
+2.10.2018 21:59:12 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/J3xO5YTznAc 2.7 4.7 jaho alkış
+2.10.2018 21:59:16 || ADD: Added jaho alkış FROM https://youtu.be/J3xO5YTznAc
+2.10.2018 21:59:37 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/J3xO5YTznAc 2.8 4.5 jaho alkış
+2.10.2018 21:59:37 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR jaho alkış
+2.10.2018 21:59:37 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/J3xO5YTznAc 2.8 4.5 jaho alkış
+2.10.2018 21:59:42 || ADD: Added jaho alkış FROM https://youtu.be/J3xO5YTznAc
+2.10.2018 21:59:58 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/J3xO5YTznAc 3 4.5 jaho alkış
+2.10.2018 21:59:58 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR jaho alkış
+2.10.2018 21:59:58 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/J3xO5YTznAc 3 4.5 jaho alkış
+2.10.2018 22:00:03 || ADD: Added jaho alkış FROM https://youtu.be/J3xO5YTznAc
+2.10.2018 22:00:38 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/J3xO5YTznAc 3 4 jaho alkış
+2.10.2018 22:00:38 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR jaho alkış
+2.10.2018 22:00:38 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/J3xO5YTznAc 3 4 jaho alkış
+2.10.2018 22:00:42 || ADD: Added jaho alkış FROM https://youtu.be/J3xO5YTznAc
+2.10.2018 22:00:57 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/J3xO5YTznAc 3 4.2 jaho alkış
+2.10.2018 22:00:58 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR jaho alkış
+2.10.2018 22:00:58 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/J3xO5YTznAc 3 4.2 jaho alkış
+2.10.2018 22:01:02 || ADD: Added jaho alkış FROM https://youtu.be/J3xO5YTznAc
+9.11.2018 01:24:09 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/G97-iY-FfQ4 2 1 fuck you mang
+9.11.2018 01:24:17 || ADD: Added fuck you mang FROM https://youtu.be/G97-iY-FfQ4
+9.11.2018 01:25:34 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/G97-iY-FfQ4 2 1.5 fuck you mang
+9.11.2018 01:25:45 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/G97-iY-FfQ4 2 1.5 fuck you mang
+9.11.2018 01:25:46 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR fuck you mang
+9.11.2018 01:25:46 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/G97-iY-FfQ4 2 1.5 fuck you mang
+9.11.2018 01:25:52 || ADD: Added fuck you mang FROM https://youtu.be/G97-iY-FfQ4
+11.11.2018 01:18:23 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/f3tXPKpjUoY 207 2 felsefe yapma
+11.11.2018 01:18:29 || ADD: Added felsefe yapma FROM https://youtu.be/f3tXPKpjUoY
+11.11.2018 01:19:06 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/f3tXPKpjUoY 208 2 felsefe yapma
+11.11.2018 01:19:08 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR felsefe yapma
+11.11.2018 01:19:08 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/f3tXPKpjUoY 208 2 felsefe yapma
+11.11.2018 01:19:14 || ADD: Added felsefe yapma FROM https://youtu.be/f3tXPKpjUoY
+11.11.2018 01:20:22 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/f3tXPKpjUoY 208 1.7 felsefe yapma
+11.11.2018 01:20:23 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR felsefe yapma
+11.11.2018 01:20:23 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/f3tXPKpjUoY 208 1.7 felsefe yapma
+11.11.2018 01:20:29 || ADD: Added felsefe yapma FROM https://youtu.be/f3tXPKpjUoY
+3.12.2018 22:45:51 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/iPhnXe79LeM 0 5 if you're feeling suicidal
+3.12.2018 22:45:58 || ADD: Added if you're feeling suicidal FROM https://youtu.be/iPhnXe79LeM
+3.12.2018 23:28:45 || INTRO: if you're feeling suicidal set as intro FOR Medic(134336937224830977)
+3.01.2019 23:58:00 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/1TJNrYfIJBg 0 1 wrong
+3.01.2019 23:58:06 || ADD: Added wrong FROM https://youtu.be/1TJNrYfIJBg
+9.01.2019 13:05:39 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://www.youtube.com/watch?v=A7v6Bc_5xMs 103 4 ahmet
+9.01.2019 13:05:46 || ADD: Added ahmet FROM https://www.youtube.com/watch?v=A7v6Bc_5xMs
+9.01.2019 13:06:18 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://www.youtube.com/watch?v=A7v6Bc_5xMs 103.5 4 ahmet
+9.01.2019 13:06:19 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR ahmet
+9.01.2019 13:06:19 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://www.youtube.com/watch?v=A7v6Bc_5xMs 103.5 4 ahmet
+9.01.2019 13:06:25 || ADD: Added ahmet FROM https://www.youtube.com/watch?v=A7v6Bc_5xMs
+9.01.2019 13:06:49 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://www.youtube.com/watch?v=A7v6Bc_5xMs 103.5 3.8 ahmet
+9.01.2019 13:06:49 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR ahmet
+9.01.2019 13:06:49 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://www.youtube.com/watch?v=A7v6Bc_5xMs 103.5 3.8 ahmet
+9.01.2019 13:06:55 || ADD: Added ahmet FROM https://www.youtube.com/watch?v=A7v6Bc_5xMs
+9.01.2019 13:14:05 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://www.youtube.com/watch?v=y3PGG0UeyOs 65.5 1.5 ismail
+9.01.2019 13:14:14 || ADD: Added ismail FROM https://www.youtube.com/watch?v=y3PGG0UeyOs
+9.01.2019 13:14:31 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://www.youtube.com/watch?v=y3PGG0UeyOs 65.75 1.5 ismail
+9.01.2019 13:14:31 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR ismail
+9.01.2019 13:14:31 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://www.youtube.com/watch?v=y3PGG0UeyOs 65.75 1.5 ismail
+9.01.2019 13:14:38 || ADD: Added ismail FROM https://www.youtube.com/watch?v=y3PGG0UeyOs
+9.01.2019 13:14:52 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://www.youtube.com/watch?v=y3PGG0UeyOs 66 1.5 ismail
+9.01.2019 13:14:52 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR ismail
+9.01.2019 13:14:52 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://www.youtube.com/watch?v=y3PGG0UeyOs 66 1.5 ismail
+9.01.2019 13:14:59 || ADD: Added ismail FROM https://www.youtube.com/watch?v=y3PGG0UeyOs
+9.01.2019 13:15:17 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://www.youtube.com/watch?v=y3PGG0UeyOs 65.8 1.75 ismail
+9.01.2019 13:15:18 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR ismail
+9.01.2019 13:15:18 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://www.youtube.com/watch?v=y3PGG0UeyOs 65.8 1.75 ismail
+9.01.2019 13:15:25 || ADD: Added ismail FROM https://www.youtube.com/watch?v=y3PGG0UeyOs
+11.01.2019 20:08:07 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/6n3pFFPSlW4 0 0.2 gnome
+11.01.2019 20:08:14 || ADD: Added gnome FROM https://youtu.be/6n3pFFPSlW4
+11.01.2019 20:08:40 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/6n3pFFPSlW4 0.2 0.2 gnome
+11.01.2019 20:08:40 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR gnome
+11.01.2019 20:08:40 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/6n3pFFPSlW4 0.2 0.2 gnome
+11.01.2019 20:08:46 || ADD: Added gnome FROM https://youtu.be/6n3pFFPSlW4
