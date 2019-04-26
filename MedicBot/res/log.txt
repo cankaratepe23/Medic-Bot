@@ -112,3 +112,57 @@
 11.01.2019 20:08:40 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR gnome
 11.01.2019 20:08:40 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/6n3pFFPSlW4 0.2 0.2 gnome
 11.01.2019 20:08:46 || ADD: Added gnome FROM https://youtu.be/6n3pFFPSlW4
+10.02.2019 00:38:37 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle http://www.youtube.com/watch?v=iLBBRuVDOo4 49 4 astronomia
+10.02.2019 00:38:44 || ADD: Added astronomia FROM http://www.youtube.com/watch?v=iLBBRuVDOo4
+10.02.2019 00:39:21 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit http://www.youtube.com/watch?v=iLBBRuVDOo4 49.5 4 astronomia
+10.02.2019 00:39:23 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR astronomia
+10.02.2019 00:39:23 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle http://www.youtube.com/watch?v=iLBBRuVDOo4 49.5 4 astronomia
+10.02.2019 00:39:28 || ADD: Added astronomia FROM http://www.youtube.com/watch?v=iLBBRuVDOo4
+10.02.2019 00:39:45 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit http://www.youtube.com/watch?v=iLBBRuVDOo4 49.7 4 astronomia
+10.02.2019 00:39:46 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR astronomia
+10.02.2019 00:39:46 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle http://www.youtube.com/watch?v=iLBBRuVDOo4 49.7 4 astronomia
+10.02.2019 00:39:52 || ADD: Added astronomia FROM http://www.youtube.com/watch?v=iLBBRuVDOo4
+10.02.2019 14:57:45 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/esGl6IbVE1Y 184 3 national tragedy
+10.02.2019 14:57:55 || ADD: Added national tragedy FROM https://youtu.be/esGl6IbVE1Y
+10.02.2019 14:58:24 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/esGl6IbVE1Y 204 3 national tragedy
+10.02.2019 14:58:25 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR national tragedy
+10.02.2019 14:58:25 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/esGl6IbVE1Y 204 3 national tragedy
+10.02.2019 14:58:32 || ADD: Added national tragedy FROM https://youtu.be/esGl6IbVE1Y
+10.02.2019 14:58:51 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/esGl6IbVE1Y 205 2 national tragedy
+10.02.2019 14:58:51 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR national tragedy
+10.02.2019 14:58:51 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/esGl6IbVE1Y 205 2 national tragedy
+10.02.2019 14:58:58 || ADD: Added national tragedy FROM https://youtu.be/esGl6IbVE1Y
+10.02.2019 14:59:55 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/YK-ceOgBvGY 6 2 oh boy yeah
+10.02.2019 15:00:01 || ADD: Added oh boy yeah FROM https://youtu.be/YK-ceOgBvGY
+10.02.2019 15:00:21 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/YK-ceOgBvGY 7 1 oh boy yeah
+10.02.2019 15:00:21 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR oh boy yeah
+10.02.2019 15:00:21 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/YK-ceOgBvGY 7 1 oh boy yeah
+10.02.2019 15:00:27 || ADD: Added oh boy yeah FROM https://youtu.be/YK-ceOgBvGY
+10.02.2019 15:03:37 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/PlxbvS-_ptI 57 3 sigara var mı yok mu
+10.02.2019 15:03:43 || ADD: Added sigara var mı yok mu FROM https://youtu.be/PlxbvS-_ptI
+18.02.2019 01:50:11 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/qIlx7FPrnac 9 1 yaa
+18.02.2019 01:50:20 || ADD: Added yaa FROM https://youtu.be/qIlx7FPrnac
+18.02.2019 01:52:22 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/qIlx7FPrnac 10 2 it's rewind time
+18.02.2019 01:52:30 || ADD: Added it's rewind time FROM https://youtu.be/qIlx7FPrnac
+8.03.2019 16:17:05 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle http://www.youtube.com/watch?v=Ag1o3koTLWM 0 8 curb
+8.03.2019 16:17:12 || ADD: Added curb FROM http://www.youtube.com/watch?v=Ag1o3koTLWM
+1.04.2019 00:30:58 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/9W6AN_eQeZo 32.5 7 u got that
+1.04.2019 00:31:04 || ADD: Added u got that FROM https://youtu.be/9W6AN_eQeZo
+1.04.2019 00:31:59 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/9W6AN_eQeZo 33 7 u got that
+1.04.2019 00:32:00 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR u got that
+1.04.2019 00:32:00 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/9W6AN_eQeZo 33 7 u got that
+1.04.2019 00:32:06 || ADD: Added u got that FROM https://youtu.be/9W6AN_eQeZo
+1.04.2019 00:32:47 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/9W6AN_eQeZo 32.8 8 u got that
+1.04.2019 00:32:47 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR u got that
+1.04.2019 00:32:47 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/9W6AN_eQeZo 32.8 8 u got that
+1.04.2019 00:32:53 || ADD: Added u got that FROM https://youtu.be/9W6AN_eQeZo
+1.04.2019 00:33:09 || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/9W6AN_eQeZo 32.9 7.8 u got that
+1.04.2019 00:33:10 || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR u got that
+1.04.2019 00:33:10 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/9W6AN_eQeZo 32.9 7.8 u got that
+1.04.2019 00:33:15 || ADD: Added u got that FROM https://youtu.be/9W6AN_eQeZo
+24.04.2019 22:14:17 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/XUhVCoTsBaM 0.8 2.5 ayayayay
+24.04.2019 22:14:22 || ADD: Added ayayayay FROM https://youtu.be/XUhVCoTsBaM
+24.04.2019 22:15:10 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/XUhVCoTsBaM 3.4 5.3 pillar men short
+24.04.2019 22:15:16 || ADD: Added pillar men short FROM https://youtu.be/XUhVCoTsBaM
+24.04.2019 22:15:31 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/XUhVCoTsBaM 0.8 7.9 pillar men
+24.04.2019 22:15:37 || ADD: Added pillar men FROM https://youtu.be/XUhVCoTsBaM
