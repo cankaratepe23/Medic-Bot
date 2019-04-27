@@ -33,7 +33,7 @@ namespace MedicBot
             if (ctx.User.Id != 134336937224830977)
             {
                 DiscordUser medicUser = await ctx.Guild.GetMemberAsync(134336937224830977);
-                await ctx.RespondWithFileAsync(@"..\..\res\hahaha_no.gif", "Bu komutu sadece HACKERMAN yani KRAL yani " + medicUser.Mention + " kullanabilir.");
+                await ctx.RespondWithFileAsync(Path.Combine(Directory.GetCurrentDirectory(), "res", "hahaha_no.gif"), "Bu komutu sadece HACKERMAN yani KRAL yani " + medicUser.Mention + " kullanabilir.");
                 return;
             }
             //Log("DISCONNECT: Got disconnect signal.");
@@ -148,12 +148,12 @@ namespace MedicBot
             bool disconnectAfterPlaying = false;
             if (fileName != null)
             {
-                filePath = @"..\..\res\" + fileName + ".mp3";
+                filePath = Path.Combine(Directory.GetCurrentDirectory(), "res", fileName + ".mp3");
             }
             else
             {
                 Random rnd = new Random();
-                string[] allFiles = Directory.GetFiles(@"..\..\res\");
+                string[] allFiles = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res"));
                 filePath = allFiles[rnd.Next(allFiles.Length)];
             }
             var voiceNext = ctx.Client.GetVoiceNext();
@@ -225,7 +225,7 @@ namespace MedicBot
             CommandContext ctx,
             [Description("Seslerin içinde aranacak harf/kelime")][RemainingText]string searchString)
         {
-            string[] allFiles = Directory.GetFiles(@"..\..\res\", "*.mp3");
+            string[] allFiles = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res"), "*.mp3");
             string response = "```\n";
             if (searchString != null)
             {
@@ -274,12 +274,12 @@ namespace MedicBot
         {
             ProcessStartInfo ffprobeInfo = new ProcessStartInfo()
             {
-                FileName = "ffprobe.exe",
+                FileName = "ffprobe",
                 Arguments = "-i \"" + audioName + ".mp3\" -v error -of default=noprint_wrappers=1:nokey=1 -hide_banner -show_entries format_tags=comment",
                 UseShellExecute = false,
                 CreateNoWindow = true,
                 RedirectStandardOutput = true,
-                WorkingDirectory = @"..\..\res\"
+                WorkingDirectory = Path.Combine(Directory.GetCurrentDirectory(), "res")
             };
             string URL = "Bu dosya için link bulunamadı.";
             Process ffprobe = Process.Start(ffprobeInfo);
@@ -299,7 +299,7 @@ namespace MedicBot
             CommandContext ctx,
             [Description("Sesin kayıtlardaki adı.")][RemainingText]string audioName)
         {
-            if (!File.Exists(@"..\..\res\" + audioName + ".mp3"))
+            if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3")))
             {
                 await ctx.RespondAsync("Öyle bir şey yok. ._.");
                 throw new InvalidOperationException("File not found.");
@@ -307,12 +307,12 @@ namespace MedicBot
 
             ProcessStartInfo ffprobeInfo = new ProcessStartInfo()
             {
-                FileName = "ffprobe.exe",
+                FileName = "ffprobe",
                 Arguments = "-i \"" + audioName + ".mp3\" -v error -of default=noprint_wrappers=1:nokey=1 -hide_banner -show_entries format_tags=author",
                 UseShellExecute = false,
                 CreateNoWindow = true,
                 RedirectStandardOutput = true,
-                WorkingDirectory = @"..\..\res\"
+                WorkingDirectory = Path.Combine(Directory.GetCurrentDirectory(), "res")
             };
             string UId = "0";
             Process ffprobe = Process.Start(ffprobeInfo);
@@ -346,7 +346,7 @@ namespace MedicBot
             Log("ADD: Add command triggered BY " + ctx.User.Username + "(" + ctx.User.Id + ") :: " + ctx.Message.Content);
             if (checkAudioExists)
             {
-                if (Directory.GetFiles(@"..\..\res\", "*.mp3").Contains(@"..\..\res\" + audioName + ".mp3"))
+                if (Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res"), "*.mp3").Contains(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3")))
                 {
                     await ctx.RespondAsync("Bu isimdeki ses kaydı zaten bota eklenmiştir.");
                     throw new InvalidOperationException("Audio file with same name already exists.");
@@ -356,9 +356,9 @@ namespace MedicBot
 
             ProcessStartInfo ydlStartInfo = new ProcessStartInfo()
             {
-                FileName = "youtube-dl.exe",
+                FileName = "youtube-dl",
                 Arguments = "--max-filesize 10M -f bestaudio " + URL + " -o \"" + audioName + ".webm\"",
-                WorkingDirectory = @"..\..\res\işlenecekler\"
+                WorkingDirectory = Path.Combine(Directory.GetCurrentDirectory(), "res", "işlenecekler")
             };
             Process youtubeDl = Process.Start(ydlStartInfo);
             youtubeDl.WaitForExit();
@@ -366,20 +366,20 @@ namespace MedicBot
 
             ProcessStartInfo ffmpegStartInfo = new ProcessStartInfo()
             {
-                FileName = "ffmpeg.exe",
+                FileName = "ffmpeg",
                 Arguments = "-ss " + startSec + " -t " + durationSec + " -i \"" + audioName + ".webm\" -b:a 128K -metadata comment=\"" + URL + "\" -metadata author=\"" + ctx.User.Id + "\" \"" + audioName + ".mp3\"",
-                WorkingDirectory = @"..\..\res\işlenecekler\"
+                WorkingDirectory = Path.Combine(Directory.GetCurrentDirectory(), "res", "işlenecekler")
             };
             Process ffmpeg = Process.Start(ffmpegStartInfo);
             ffmpeg.WaitForExit();
             ffmpeg.Dispose();
-            File.Delete(@"..\..\res\işlenecekler\" + audioName + ".webm");
-            if (File.Exists(@"..\..\res\" + audioName + ".mp3"))
+            File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "res", "işlenecekler", audioName + ".webm"));
+            if (File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3")))
             {
-                File.Delete(@"..\..\res\" + audioName + ".mp3");
+                File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3"));
             }
 
-            File.Move(@"..\..\res\işlenecekler\" + audioName + ".mp3", @"..\..\res\" + audioName + ".mp3");
+            File.Move(Path.Combine(Directory.GetCurrentDirectory(), "res", "işlenecekler", audioName + ".mp3"), Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3"));
             Log("ADD: Added " + audioName + " FROM " + URL);
         }
 
@@ -390,17 +390,17 @@ namespace MedicBot
             CommandContext ctx,
             [RemainingText]string audioName)
         {
-            if (File.Exists(@"..\..\res\" + ctx.User.Id.ToString() + @"\" + audioName + ".mp3"))
+            if (File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", ctx.User.Id.ToString(), audioName + ".mp3")))
             {
                 await ctx.RespondAsync("\"" + audioName + "\" ses efekti zaten sizin giriş efektiniz olarak kayıtlı.");
                 throw new InvalidOperationException("An audio file with the same name is already added to the user's audio list.");
             }
-            if (!File.Exists(@"..\..\res\" + audioName + ".mp3"))
+            if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3")))
             {
                 await ctx.RespondAsync("Öyle bir şey yok. ._.");
                 throw new InvalidOperationException("File not found.");
             }
-            File.Copy(@"..\..\res\" + audioName + ".mp3", @"..\..\res\" + ctx.User.Id.ToString() + @"\" + audioName + ".mp3");
+            File.Copy(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3"), Path.Combine(Directory.GetCurrentDirectory(), "res", ctx.User.Id.ToString(), audioName + ".mp3"));
             Log(string.Format("INTRO: {0} set as intro FOR {1}({2})", audioName, ctx.User.Username, ctx.User.Id));
         }
 
@@ -416,7 +416,7 @@ namespace MedicBot
             [Description("Sesin kayıtlardaki adı.")][RemainingText]string audioName)
         {
             Log("EDIT: Edit command triggered BY " + ctx.User.Username + "(" + ctx.User.Id + ") :: " + ctx.Message.Content);
-            if (!File.Exists(@"..\..\res\" + audioName + ".mp3"))
+            if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3")))
             {
                 await ctx.RespondAsync("Bu isme sahip ses kaydı bulunamadı. Lütfen `#ekle` komutunu kullanın.");
                 throw new InvalidOperationException("The file to edit doesn't exist.");
@@ -440,7 +440,7 @@ namespace MedicBot
             [Description("Sesin kayıtlardaki adı.")][RemainingText]string audioName)
         {
             Log("DELETE: Delete command triggered BY " + ctx.User.Username + "(" + ctx.User.Id + ") :: " + ctx.Message.Content);
-            if (!File.Exists(@"..\..\res\" + audioName + ".mp3"))
+            if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3")))
             {
                 await ctx.RespondAsync("Öyle bir şey yok. ._.");
                 throw new InvalidOperationException("File to delete not found.");
@@ -450,8 +450,8 @@ namespace MedicBot
                 await ctx.RespondAsync("Bu sesi, sahibi siz olmadığınız için silemezsiniz.");
                 throw new InvalidOperationException("The user trying to delete the file is not the owner of the file.");
             }
-            File.Copy(@"..\..\res\" + audioName + ".mp3", @"..\..\res\trash\" + audioName + ".mp3"); //Copy and then Delete instead of Move so the Date Created property updates to reflect the date and time the sound file was deleted.
-            File.Delete(@"..\..\res\" + audioName + ".mp3"); //Using Move leads to the Date Created and Date Modified properties not change at all.
+            File.Copy(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3"), Path.Combine(Directory.GetCurrentDirectory(), "res", "trash", audioName + ".mp3")); //Copy and then Delete instead of Move so the Date Created property updates to reflect the date and time the sound file was deleted.
+            File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3")); //Using Move leads to the Date Created and Date Modified properties not change at all.
             Log(string.Format("DELETE: FILE {0} deleted BY {1}({2})", audioName, ctx.User.Username, ctx.User.Id));
             await ctx.RespondAsync("🗑️");
         }
@@ -538,6 +538,12 @@ namespace MedicBot
             await Play(ctx, "pezevenk");
         }
 
+        [Command("test")]
+        public async Task Test(CommandContext ctx)
+        {
+            await ctx.Channel.SendMessageAsync(Path.Combine(Directory.GetCurrentDirectory(), "res", "işlenecekler"));
+        }
+
         [Command("purge")]
         public async Task Purge(CommandContext ctx)
         {
@@ -564,12 +570,12 @@ namespace MedicBot
         {
             ProcessStartInfo ffprobeInfo = new ProcessStartInfo()
             {
-                FileName = "ffprobe.exe",
+                FileName = "ffprobe",
                 Arguments = "-i \"" + audioName + ".mp3\" -v error -of default=noprint_wrappers=1:nokey=1 -hide_banner -show_entries format_tags=author",
                 UseShellExecute = false,
                 CreateNoWindow = true,
                 RedirectStandardOutput = true,
-                WorkingDirectory = @"..\..\res\"
+                WorkingDirectory = Path.Combine(Directory.GetCurrentDirectory(), "res")
             };
             Process ffprobe = Process.Start(ffprobeInfo);
             string UserId = "0";
@@ -584,7 +590,7 @@ namespace MedicBot
 
         public void Log(string logString)
         {
-            File.AppendAllText(@"..\..\res\log.txt", Environment.NewLine + DateTime.Now.ToString() + " || " + logString);
+            File.AppendAllText(Path.Combine(Directory.GetCurrentDirectory(), "res", "log.txt"), Environment.NewLine + DateTime.Now.ToString() + " || " + logString);
         }
 
         public async Task OnVoiceReceived(VoiceReceiveEventArgs ea)
