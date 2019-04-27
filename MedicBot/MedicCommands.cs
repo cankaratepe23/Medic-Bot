@@ -118,6 +118,9 @@ namespace MedicBot
                 kvp.Value.WaitForExit();
             }
             this.ffmpegs = null;
+            await voiceNextConnection.SendSpeakingAsync(false);
+            nowPlaying = false;
+            queuedSongs.Clear();
             //Log(String.Format("LEAVE: Bot is leaving voice channel {0}({1})", voiceNextConnection.Channel.Id, voiceNextConnection.Channel.Name));
             voiceNextConnection.Disconnect();
             //Log("LEAVE: Bot left the voice channel.");
@@ -142,6 +145,7 @@ namespace MedicBot
         public async Task Play(CommandContext ctx, [Description("Çalınacak sesin adı. `#liste` komutuyla tüm seslerin listesini DM ile alabilirsiniz.")][RemainingText] string fileName)
         {
             string filePath;
+            bool disconnectAfterPlaying = false;
             if (fileName != null)
             {
                 filePath = @"..\..\res\" + fileName + ".mp3";
@@ -156,8 +160,8 @@ namespace MedicBot
             var voiceNextConnection = voiceNext.GetConnection(ctx.Guild);
             if (voiceNextConnection == null)
             {
-                await ctx.RespondAsync("Daha gelmedim bi dur");
-                throw new InvalidOperationException("Not connected, can't play.");
+                await Join(ctx, ctx.Channel.Id);
+                disconnectAfterPlaying = true;
             }
             if (!File.Exists(filePath))
             {
@@ -207,6 +211,10 @@ namespace MedicBot
                 await ctx.CommandsNext.ExecuteCommandAsync(ctx.CommandsNext.CreateFakeContext(ctx.User, ctx.Channel, "#play " + onQueue, "#", ctx.CommandsNext.RegisteredCommands.Where(c => c.Key == "play").FirstOrDefault().Value, onQueue));
             }
             await ctx.Client.UpdateStatusAsync();
+            if (disconnectAfterPlaying)
+            {
+                await Leave(ctx);
+            }
         }
         #endregion
 

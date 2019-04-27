@@ -46,13 +46,10 @@ namespace MedicBot
                 Timeout = TimeSpan.FromMinutes(1)
             });
             // EnableIncoming = true increases CPU usage and is not being used until Speech Recognition can be handled easily.
-            /*
             voice = discord.UseVoiceNext(new VoiceNextConfiguration
             {
-                EnableIncoming = true
+                EnableIncoming = false
             });
-            */
-            voice = discord.UseVoiceNext();
 
 
             discord.VoiceStateUpdated += async e =>
@@ -93,7 +90,7 @@ namespace MedicBot
                 else if (e.Message.Content.ToUpper().StartsWith("HOFFMAN"))
                 {
                     await e.Channel.SendMessageAsync("Yeah?");
-                    var userReply = await interactivity.WaitForMessageAsync(m => m.Author == e.Author && m.Content.ToLower().Contains(" call this "));
+                    var userReply = await interactivity.WaitForMessageAsync(m => m.Author.Id == e.Author.Id && m.Content.Contains(" call this"), TimeSpan.FromSeconds(5));
                     await e.Channel.SendMessageAsync("Uh, uhh...");
                     // TODO: Think of functionality for this HOFFMAN
                 }
