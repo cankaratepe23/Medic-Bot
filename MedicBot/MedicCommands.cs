@@ -4,24 +4,22 @@ using DSharpPlus.Entities;
 using DSharpPlus.Interactivity;
 using DSharpPlus.VoiceNext;
 using System;
-using System.Collections.Concurrent;
-using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using YoutubeSearch;
-using DSharpPlus.EventArgs;
 
 namespace MedicBot
 {
     [RequirePrefixes("#")]
     public class MedicCommands : DSharpPlus.CommandsNext.BaseCommandModule
     {
-        private ConcurrentDictionary<uint, Process> ffmpegs;
+        //private ConcurrentDictionary<uint, Process> ffmpegs;
         bool checkAudioExists = true;
         bool nowPlaying;
-        bool recordingDisabled = true;
+        //bool recordingDisabled = true;
         private List<string> queuedSongs = new List<string>();
 
         #region Commands related to connectivity.
@@ -54,10 +52,9 @@ namespace MedicBot
                 await ctx.RespondAsync("Buradayız işte lan ne join atıyon");
                 throw new InvalidOperationException("Already connected, no need to reconnect.");
             }
-            if (channelID == 0 && ctx.Member.VoiceState.Channel == null)
+            if (channelID == 0 && ctx.Member.VoiceState == null)
             {
-                await ctx.RespondAsync("Önden bayanlar");
-                throw new InvalidOperationException("You need to be in a voice channel.");
+                voiceNextConnection = await voiceNext.ConnectAsync(ctx.Guild.Channels.Where(ch => ch.Type == DSharpPlus.ChannelType.Voice && ch != ctx.Guild.AfkChannel).OrderBy(ch => ch.Name).FirstOrDefault());
             }
             else if (channelID == 0)
             {
@@ -69,8 +66,8 @@ namespace MedicBot
                 voiceNextConnection = await voiceNext.ConnectAsync(ctx.Guild.GetChannel(channelID));
                 //Log(String.Format("JOIN: Bot joined to voice channel {0}({1})", voiceNextConnection.Channel.Id, voiceNextConnection.Channel.Name));
             }
-            this.ffmpegs = new ConcurrentDictionary<uint, Process>();
-            voiceNextConnection.VoiceReceived += OnVoiceReceived;
+            //this.ffmpegs = new ConcurrentDictionary<uint, Process>();
+            //voiceNextConnection.VoiceReceived += OnVoiceReceived;
         }
 
         [Command("join")]
@@ -94,8 +91,8 @@ namespace MedicBot
                 await ctx.RespondAsync("Ses kanalı bulunamadı ya da birden fazla bulundu. Biraz daha kesin konuşur musun");
                 throw new InvalidOperationException("Multiple or no voice channels found.");
             }
-            this.ffmpegs = new ConcurrentDictionary<uint, Process>();
-            voiceNextConnection.VoiceReceived += OnVoiceReceived;
+            //this.ffmpegs = new ConcurrentDictionary<uint, Process>();
+            //voiceNextConnection.VoiceReceived += OnVoiceReceived;
         }
 
         [Command("leave")]
@@ -110,6 +107,7 @@ namespace MedicBot
                 await ctx.RespondAsync("Daha gelmedik ki kovuyorsun");
                 throw new InvalidOperationException("Not connected, can't leave.");
             }
+            /*
             voiceNextConnection.VoiceReceived -= OnVoiceReceived;
             foreach (var kvp in this.ffmpegs)
             {
@@ -118,7 +116,8 @@ namespace MedicBot
                 kvp.Value.WaitForExit();
             }
             this.ffmpegs = null;
-            await voiceNextConnection.SendSpeakingAsync(false);
+            */
+            //await voiceNextConnection.SendSpeakingAsync(false);
             nowPlaying = false;
             queuedSongs.Clear();
             //Log(String.Format("LEAVE: Bot is leaving voice channel {0}({1})", voiceNextConnection.Channel.Id, voiceNextConnection.Channel.Name));
@@ -160,7 +159,8 @@ namespace MedicBot
             var voiceNextConnection = voiceNext.GetConnection(ctx.Guild);
             if (voiceNextConnection == null)
             {
-                await Join(ctx, ctx.Channel.Id);
+                await Join(ctx);
+                voiceNextConnection = voiceNext.GetConnection(ctx.Guild);
                 disconnectAfterPlaying = true;
             }
             if (!File.Exists(filePath))
@@ -214,6 +214,7 @@ namespace MedicBot
             if (disconnectAfterPlaying)
             {
                 await Leave(ctx);
+                voiceNextConnection = null;
             }
         }
         #endregion
@@ -519,7 +520,7 @@ namespace MedicBot
 
             // (x + y - 1) ÷ y =
             // x = itemCount    y = 19
-           
+
         }
 
         [Command("yeniyıl")]
@@ -544,27 +545,27 @@ namespace MedicBot
             await ctx.Channel.SendMessageAsync(Path.Combine(Directory.GetCurrentDirectory(), "res", "işlenecekler"));
         }
 
-        [Command("purge")]
-        public async Task Purge(CommandContext ctx)
-        {
-            var voiceNext = ctx.Client.GetVoiceNext();
-            var voiceNextConnection = voiceNext.GetConnection(ctx.Guild);
-            voiceNextConnection.Disconnect();
-        }
+        //[Command("purge")]
+        //public async Task Purge(CommandContext ctx)
+        //{
+        //    var voiceNext = ctx.Client.GetVoiceNext();
+        //    var voiceNextConnection = voiceNext.GetConnection(ctx.Guild);
+        //    voiceNextConnection.Disconnect();
+        //}
 
-        [Command("record")]
-        public async Task RecordToggle(CommandContext ctx)
-        {
-            if (recordingDisabled)
-            {
-                recordingDisabled = false;
-            }
-            else
-            {
-                recordingDisabled = true;
-            }
-            await ctx.RespondAsync("Recording has been " + (recordingDisabled ? "disabled" : "enabled"));
-        }
+        //[Command("record")]
+        //public async Task RecordToggle(CommandContext ctx)
+        //{
+        //    if (recordingDisabled)
+        //    {
+        //        recordingDisabled = false;
+        //    }
+        //    else
+        //    {
+        //        recordingDisabled = true;
+        //    }
+        //    await ctx.RespondAsync("Recording has been " + (recordingDisabled ? "disabled" : "enabled"));
+        //}
 
         public bool IsOwner(ulong UId, string audioName)
         {
@@ -592,7 +593,7 @@ namespace MedicBot
         {
             File.AppendAllText(Path.Combine(Directory.GetCurrentDirectory(), "res", "log.txt"), Environment.NewLine + DateTime.Now.ToString() + " || " + logString);
         }
-
+        /*
         public async Task OnVoiceReceived(VoiceReceiveEventArgs ea)
         {
             if (recordingDisabled)
@@ -616,5 +617,6 @@ namespace MedicBot
             await ffmpeg.StandardInput.BaseStream.WriteAsync(buff, 0, buff.Length);
             await ffmpeg.StandardInput.BaseStream.FlushAsync();
         }
+        */
     }
 }

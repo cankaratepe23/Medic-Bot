@@ -51,6 +51,9 @@ namespace MedicBot
                 EnableIncoming = false
             });
 
+            System.Timers.Timer timer = new System.Timers.Timer(900000); // change this to a larger value later: 900000
+            timer.Elapsed += Timer_ElapsedAsync;
+            timer.Enabled = true;
 
             discord.VoiceStateUpdated += async e =>
             {
@@ -97,6 +100,23 @@ namespace MedicBot
             };
             await discord.ConnectAsync();
             await Task.Delay(-1);
+        }
+
+        private static void Timer_ElapsedAsync(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            string nextTickString = File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "res", "timer.txt")).FirstOrDefault();
+            DateTime nextTick = DateTime.Parse(nextTickString);
+            if (DateTime.Now - nextTick < TimeSpan.FromSeconds(0))
+            {
+                return; // We haven't reached the tick time yet.
+            }
+            // We reached the tick time.
+            Random rnd = new Random();
+            DiscordUser medicUser = discord.GetUserAsync(134336937224830977).Result;
+            commands.ExecuteCommandAsync(commands.CreateFakeContext(medicUser, discord.GetGuildAsync(463052720509812736).Result.Channels.FirstOrDefault(), "#play", "#", commands.RegisteredCommands.Where(c => c.Key == "play").FirstOrDefault().Value));
+            int spanToNext = rnd.Next(300000, 86400000);
+            nextTick = DateTime.Now + TimeSpan.FromMilliseconds(spanToNext);
+            File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "res", "timer.txt"), nextTick.ToString());
         }
     }
 }
