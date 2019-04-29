@@ -105,8 +105,8 @@ namespace MedicBot
         private static void Timer_ElapsedAsync(object sender, System.Timers.ElapsedEventArgs e)
         {
             string nextTickString = File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "res", "timer.txt")).FirstOrDefault();
-            DateTime nextTick = DateTime.Parse(nextTickString);
-            if (DateTime.Now - nextTick < TimeSpan.FromSeconds(0))
+            DateTime nextTick = DateTime.ParseExact(nextTickString, "dd.MM.yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+            if (DateTime.UtcNow.Subtract(nextTick) < TimeSpan.FromSeconds(0))
             {
                 return; // We haven't reached the tick time yet.
             }
@@ -115,8 +115,8 @@ namespace MedicBot
             DiscordUser medicUser = discord.GetUserAsync(134336937224830977).Result;
             commands.ExecuteCommandAsync(commands.CreateFakeContext(medicUser, discord.GetGuildAsync(463052720509812736).Result.Channels.FirstOrDefault(), "#play", "#", commands.RegisteredCommands.Where(c => c.Key == "play").FirstOrDefault().Value));
             int spanToNext = rnd.Next(300000, 86400000);
-            nextTick = DateTime.Now + TimeSpan.FromMilliseconds(spanToNext);
-            File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "res", "timer.txt"), nextTick.ToString());
+            nextTick = DateTime.UtcNow.Add(TimeSpan.FromMilliseconds(spanToNext));
+            File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "res", "timer.txt"), nextTick.ToString("dd.MM.yyyy HH:mm:ss"));
         }
     }
 }
