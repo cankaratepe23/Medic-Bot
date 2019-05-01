@@ -98,27 +98,27 @@ namespace MedicBot
                 else if (messageContent.Contains("iftara") || messageContent.Contains("akşam ezanına"))
                 {
                     DateTime iftarTime = GetIftarTime();
-                    TimeSpan timeLeft = iftarTime.Subtract(DateTime.Now);
-                    await e.Channel.SendMessageAsync("Akşam ezanı " + iftarTime.ToShortTimeString() + " saatinde okunuyor, yani " + (timeLeft.Hours == 0 ? "" : timeLeft.Hours + " saat ") + timeLeft.Minutes + " dakika kaldı.");
+                    TimeSpan timeLeft = iftarTime.Subtract(DateTime.UtcNow.AddHours(3));
+                    await e.Channel.SendMessageAsync("Akşam ezanı " + iftarTime.ToString("HH:mm") + " saatinde okunuyor, yani " + (timeLeft.Hours == 0 ? "" : timeLeft.Hours + " saat ") + timeLeft.Minutes + " dakika kaldı.");
                 }
                 else if (messageContent.Contains("sahura"))
                 {
                     DateTime imsakTime = GetImsakTime();
-                    TimeSpan timeLeft = imsakTime.Subtract(DateTime.Now);
-                    await e.Channel.SendMessageAsync("İmsak " + imsakTime.ToShortTimeString() + " saatinde, yani " + (timeLeft.Hours == 0 ? "" : timeLeft.Hours + " saat ") + timeLeft.Minutes + " dakika kaldı.");
+                    TimeSpan timeLeft = imsakTime.Subtract(DateTime.UtcNow.AddHours(3));
+                    await e.Channel.SendMessageAsync("İmsak " + imsakTime.ToString("HH:mm") + " saatinde, yani " + (timeLeft.Hours == 0 ? "" : timeLeft.Hours + " saat ") + timeLeft.Minutes + " dakika kaldı.");
                 }
                 else if (messageContent.Contains("okundu mu") || messageContent.Contains("kaçta oku"))
                 {
                     DateTime iftarTime = GetIftarTime();
                     if (iftarTime.Day == DateTime.Today.Day)
                     {
-                        TimeSpan timeLeft = iftarTime.Subtract(DateTime.Now);
-                        await e.Channel.SendMessageAsync("Akşam ezanı " + iftarTime.ToShortTimeString() + " saatinde okunuyor, yani " + (timeLeft.Hours == 0 ? "" : timeLeft.Hours + " saat ") + timeLeft.Minutes + " dakika kaldı.");
+                        TimeSpan timeLeft = iftarTime.Subtract(DateTime.UtcNow.AddHours(3));
+                        await e.Channel.SendMessageAsync("Akşam ezanı " + iftarTime.ToString("HH:mm") + " saatinde okunuyor, yani " + (timeLeft.Hours == 0 ? "" : timeLeft.Hours + " saat ") + timeLeft.Minutes + " dakika kaldı.");
                     }
                     else
                     {
                         DateTime imsakTime = GetImsakTime();
-                        TimeSpan timeLeft = imsakTime.Subtract(DateTime.Now);
+                        TimeSpan timeLeft = imsakTime.Subtract(DateTime.UtcNow.AddHours(3));
                         await e.Channel.SendMessageAsync("Okundu! Sahura " + (timeLeft.Hours == 0 ? "" : timeLeft.Hours + " saat ") + timeLeft.Minutes + " dakika kaldı.");
                     }
                 }
@@ -140,11 +140,11 @@ namespace MedicBot
             var htmlDoc = new HtmlDocument();
             htmlDoc.LoadHtml(response);
             var imsakDiv = htmlDoc.DocumentNode.SelectSingleNode(@"/html/body/div[4]/div[3]/div[1]/section/div/div[2]/div/table/tbody/tr[1]/td[2]");
-            DateTime imsakTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(imsakDiv.InnerText.Substring(0, 2)), Convert.ToInt32(imsakDiv.InnerText.Substring(3, 2)), 00);
-            if (DateTime.Now.Subtract(imsakTime).TotalSeconds > 0)
+            DateTime imsakTime = new DateTime(DateTime.UtcNow.AddHours(3).Year, DateTime.UtcNow.AddHours(3).Month, DateTime.UtcNow.AddHours(3).Day, Convert.ToInt32(imsakDiv.InnerText.Substring(0, 2)), Convert.ToInt32(imsakDiv.InnerText.Substring(3, 2)), 00);
+            if (DateTime.UtcNow.AddHours(3).Subtract(imsakTime).TotalSeconds > 0)
             {
                 imsakDiv = htmlDoc.DocumentNode.SelectSingleNode(@"/html/body/div[4]/div[3]/div[1]/section/div/div[2]/div/table/tbody/tr[2]/td[2]");
-                DateTime tomorrow = DateTime.Now.AddDays(1);
+                DateTime tomorrow = DateTime.UtcNow.AddHours(3).AddDays(1);
                 imsakTime = new DateTime(tomorrow.Year, tomorrow.Month, tomorrow.Day, Convert.ToInt32(imsakDiv.InnerText.Substring(0, 2)), Convert.ToInt32(imsakDiv.InnerText.Substring(3, 2)), 00);
             }
             return imsakTime;
@@ -156,11 +156,11 @@ namespace MedicBot
             var htmlDoc = new HtmlDocument();
             htmlDoc.LoadHtml(response);
             var aksamDiv = htmlDoc.DocumentNode.SelectSingleNode(@"/html/body/div[4]/div[3]/div[1]/section/div/div[2]/div/table/tbody/tr[1]/td[6]");
-            DateTime aksamTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(aksamDiv.InnerText.Substring(0, 2)), Convert.ToInt32(aksamDiv.InnerText.Substring(3, 2)), 00);
-            if (DateTime.Now.Subtract(aksamTime).TotalSeconds > 0)
+            DateTime aksamTime = new DateTime(DateTime.UtcNow.AddHours(3).Year, DateTime.UtcNow.AddHours(3).Month, DateTime.UtcNow.AddHours(3).Day, Convert.ToInt32(aksamDiv.InnerText.Substring(0, 2)), Convert.ToInt32(aksamDiv.InnerText.Substring(3, 2)), 00);
+            if (DateTime.UtcNow.AddHours(3).Subtract(aksamTime).TotalSeconds > 0)
             {
                 aksamDiv = htmlDoc.DocumentNode.SelectSingleNode(@"/html/body/div[4]/div[3]/div[1]/section/div/div[2]/div/table/tbody/tr[2]/td[6]");
-                DateTime tomorrow = DateTime.Now.AddDays(1);
+                DateTime tomorrow = DateTime.UtcNow.AddHours(3).AddDays(1);
                 aksamTime = new DateTime(tomorrow.Year, tomorrow.Month, tomorrow.Day, Convert.ToInt32(aksamDiv.InnerText.Substring(0, 2)), Convert.ToInt32(aksamDiv.InnerText.Substring(3, 2)), 00);
             }
             return aksamTime;
