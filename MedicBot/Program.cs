@@ -3,10 +3,12 @@ using DSharpPlus.CommandsNext;
 using DSharpPlus.Entities;
 using DSharpPlus.Interactivity;
 using DSharpPlus.VoiceNext;
+using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace MedicBot
@@ -84,11 +86,41 @@ namespace MedicBot
 
             discord.MessageCreated += async e =>
             {
+                if (e.Author.Equals(discord.CurrentUser))
+                    return;
+                string messageContent = e.Message.Content.ToLower();
                 if (e.Author.Id == 477504775907311619 && e.Message.Content == "wrong")
                 {
                     DiscordUser medicUser = await discord.GetUserAsync(134336937224830977);
                     //await commands.SudoAsync(medicUser, e.Channel, "#play wrong");
                     await commands.ExecuteCommandAsync(commands.CreateFakeContext(medicUser, e.Guild.Channels.FirstOrDefault(), "#play wrong", "#", commands.RegisteredCommands.Where(c => c.Key == "play").FirstOrDefault().Value, "wrong"));
+                }
+                else if (messageContent.Contains("iftara") || messageContent.Contains("akşam ezanına"))
+                {
+                    DateTime iftarTime = GetIftarTime();
+                    TimeSpan timeLeft = iftarTime.Subtract(DateTime.Now);
+                    await e.Channel.SendMessageAsync("Akşam ezanı " + iftarTime.ToShortTimeString() + " saatinde okunuyor, yani " + (timeLeft.Hours == 0 ? "" : timeLeft.Hours + " saat ") + timeLeft.Minutes + " dakika kaldı.");
+                }
+                else if (messageContent.Contains("sahura"))
+                {
+                    DateTime imsakTime = GetImsakTime();
+                    TimeSpan timeLeft = imsakTime.Subtract(DateTime.Now);
+                    await e.Channel.SendMessageAsync("İmsak " + imsakTime.ToShortTimeString() + " saatinde, yani " + (timeLeft.Hours == 0 ? "" : timeLeft.Hours + " saat ") + timeLeft.Minutes + " dakika kaldı.");
+                }
+                else if (messageContent.Contains("okundu mu") || messageContent.Contains("kaçta oku"))
+                {
+                    DateTime iftarTime = GetIftarTime();
+                    if (iftarTime.Day == DateTime.Today.Day)
+                    {
+                        TimeSpan timeLeft = iftarTime.Subtract(DateTime.Now);
+                        await e.Channel.SendMessageAsync("Akşam ezanı " + iftarTime.ToShortTimeString() + " saatinde okunuyor, yani " + (timeLeft.Hours == 0 ? "" : timeLeft.Hours + " saat ") + timeLeft.Minutes + " dakika kaldı.");
+                    }
+                    else
+                    {
+                        DateTime imsakTime = GetImsakTime();
+                        TimeSpan timeLeft = imsakTime.Subtract(DateTime.Now);
+                        await e.Channel.SendMessageAsync("Okundu! Sahura " + (timeLeft.Hours == 0 ? "" : timeLeft.Hours + " saat ") + timeLeft.Minutes + " dakika kaldı.");
+                    }
                 }
                 else if (e.Message.Content.ToUpper().StartsWith("HOFFMAN"))
                 {
@@ -102,11 +134,43 @@ namespace MedicBot
             await Task.Delay(-1);
         }
 
+        private static DateTime GetImsakTime()
+        {
+            string response = new WebClient().DownloadString(@"https://namazvakitleri.diyanet.gov.tr/tr-TR/9541/istanbul-icin-namaz-vakti");
+            var htmlDoc = new HtmlDocument();
+            htmlDoc.LoadHtml(response);
+            var imsakDiv = htmlDoc.DocumentNode.SelectSingleNode(@"/html/body/div[4]/div[3]/div[1]/section/div/div[2]/div/table/tbody/tr[1]/td[2]");
+            DateTime imsakTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(imsakDiv.InnerText.Substring(0, 2)), Convert.ToInt32(imsakDiv.InnerText.Substring(3, 2)), 00);
+            if (DateTime.Now.Subtract(imsakTime).TotalSeconds > 0)
+            {
+                imsakDiv = htmlDoc.DocumentNode.SelectSingleNode(@"/html/body/div[4]/div[3]/div[1]/section/div/div[2]/div/table/tbody/tr[2]/td[2]");
+                DateTime tomorrow = DateTime.Now.AddDays(1);
+                imsakTime = new DateTime(tomorrow.Year, tomorrow.Month, tomorrow.Day, Convert.ToInt32(imsakDiv.InnerText.Substring(0, 2)), Convert.ToInt32(imsakDiv.InnerText.Substring(3, 2)), 00);
+            }
+            return imsakTime;
+        }
+
+        private static DateTime GetIftarTime()
+        {
+            string response = new WebClient().DownloadString(@"https://namazvakitleri.diyanet.gov.tr/tr-TR/9541/istanbul-icin-namaz-vakti");
+            var htmlDoc = new HtmlDocument();
+            htmlDoc.LoadHtml(response);
+            var aksamDiv = htmlDoc.DocumentNode.SelectSingleNode(@"/html/body/div[4]/div[3]/div[1]/section/div/div[2]/div/table/tbody/tr[1]/td[6]");
+            DateTime aksamTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(aksamDiv.InnerText.Substring(0, 2)), Convert.ToInt32(aksamDiv.InnerText.Substring(3, 2)), 00);
+            if (DateTime.Now.Subtract(aksamTime).TotalSeconds > 0)
+            {
+                aksamDiv = htmlDoc.DocumentNode.SelectSingleNode(@"/html/body/div[4]/div[3]/div[1]/section/div/div[2]/div/table/tbody/tr[2]/td[6]");
+                DateTime tomorrow = DateTime.Now.AddDays(1);
+                aksamTime = new DateTime(tomorrow.Year, tomorrow.Month, tomorrow.Day, Convert.ToInt32(aksamDiv.InnerText.Substring(0, 2)), Convert.ToInt32(aksamDiv.InnerText.Substring(3, 2)), 00);
+            }
+            return aksamTime;
+        }
+
         private static void Timer_ElapsedAsync(object sender, System.Timers.ElapsedEventArgs e)
         {
             string nextTickString = File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "res", "timer.txt")).FirstOrDefault();
             DateTime nextTick = DateTime.ParseExact(nextTickString, "dd.MM.yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-            if (DateTime.UtcNow.Subtract(nextTick) < TimeSpan.FromSeconds(0))
+            if (DateTime.UtcNow.Subtract(nextTick).TotalSeconds < 0)
             {
                 return; // We haven't reached the tick time yet.
             }

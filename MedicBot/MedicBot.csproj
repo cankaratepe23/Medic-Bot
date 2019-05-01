@@ -47,6 +47,9 @@
     <Reference Include="DSharpPlus.VoiceNext, Version=4.0.0.560, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DSharpPlus.VoiceNext.4.0.0-nightly-00560\lib\net45\DSharpPlus.VoiceNext.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.4.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.4\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Emzi0767.Microsoft.DependencyInjection.2.0.0\lib\net45\Microsoft.Extensions.DependencyInjection.dll</HintPath>
     </Reference>
