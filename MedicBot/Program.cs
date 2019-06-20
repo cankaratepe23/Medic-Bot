@@ -66,10 +66,10 @@ namespace MedicBot
                     {
                         Random rnd = new Random();
                         DiscordUser medicUser = await discord.GetUserAsync(134336937224830977);
-                        List<string> userSpecificFiles = new List<string>(Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res", "0"), "*.mp3"));
+                        List<string> userSpecificFiles = new List<string>(Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res", "0"), "*.opus"));
                         if (Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", e.User.Id.ToString())))
                         {
-                            userSpecificFiles.AddRange(Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res", e.User.Id.ToString()), "*.mp3"));
+                            userSpecificFiles.AddRange(Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res", e.User.Id.ToString()), "*.opus"));
                         }
                         string audioFile = Path.GetFileNameWithoutExtension(userSpecificFiles[rnd.Next(0, userSpecificFiles.Count)]);
                         await Task.Delay(1000);
