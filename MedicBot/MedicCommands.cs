@@ -147,7 +147,7 @@ namespace MedicBot
             bool disconnectAfterPlaying = false;
             if (fileName != null)
             {
-                filePath = Path.Combine(Directory.GetCurrentDirectory(), "res", fileName + ".mp3");
+                filePath = Path.Combine(Directory.GetCurrentDirectory(), "res", fileName + ".opus");
             }
             else
             {
@@ -226,7 +226,7 @@ namespace MedicBot
             CommandContext ctx,
             [Description("Seslerin içinde aranacak harf/kelime")][RemainingText]string searchString)
         {
-            string[] allFiles = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res"), "*.mp3");
+            string[] allFiles = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res"), "*.opus");
             string response = "```\n";
             if (searchString != null)
             {
@@ -276,7 +276,7 @@ namespace MedicBot
             ProcessStartInfo ffprobeInfo = new ProcessStartInfo()
             {
                 FileName = "ffprobe",
-                Arguments = "-i \"" + audioName + ".mp3\" -v error -of default=noprint_wrappers=1:nokey=1 -hide_banner -show_entries format_tags=comment",
+                Arguments = "-i \"" + audioName + ".opus\" -v error -of default=noprint_wrappers=1:nokey=1 -hide_banner -show_entries stream_tags=comment",
                 UseShellExecute = false,
                 CreateNoWindow = true,
                 RedirectStandardOutput = true,
@@ -300,7 +300,7 @@ namespace MedicBot
             CommandContext ctx,
             [Description("Sesin kayıtlardaki adı.")][RemainingText]string audioName)
         {
-            if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3")))
+            if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".opus")))
             {
                 await ctx.RespondAsync("Öyle bir şey yok. ._.");
                 throw new InvalidOperationException("File not found.");
@@ -309,7 +309,7 @@ namespace MedicBot
             ProcessStartInfo ffprobeInfo = new ProcessStartInfo()
             {
                 FileName = "ffprobe",
-                Arguments = "-i \"" + audioName + ".mp3\" -v error -of default=noprint_wrappers=1:nokey=1 -hide_banner -show_entries format_tags=author",
+                Arguments = "-i \"" + audioName + ".opus\" -v error -of default=noprint_wrappers=1:nokey=1 -hide_banner -show_entries stream_tags=author",
                 UseShellExecute = false,
                 CreateNoWindow = true,
                 RedirectStandardOutput = true,
@@ -347,7 +347,7 @@ namespace MedicBot
             Log("ADD: Add command triggered BY " + ctx.User.Username + "(" + ctx.User.Id + ") :: " + ctx.Message.Content);
             if (checkAudioExists)
             {
-                if (Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res"), "*.mp3").Contains(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3")))
+                if (Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res"), "*.opus").Contains(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".opus")))
                 {
                     await ctx.RespondAsync("Bu isimdeki ses kaydı zaten bota eklenmiştir.");
                     throw new InvalidOperationException("Audio file with same name already exists.");
@@ -368,19 +368,19 @@ namespace MedicBot
             ProcessStartInfo ffmpegStartInfo = new ProcessStartInfo()
             {
                 FileName = "ffmpeg",
-                Arguments = "-ss " + startSec + " -t " + durationSec + " -i \"" + audioName + ".webm\" -b:a 128K -metadata comment=\"" + URL + "\" -metadata author=\"" + ctx.User.Id + "\" \"" + audioName + ".mp3\"",
+                Arguments = "-ss " + startSec + " -t " + durationSec + " -i \"" + audioName + ".webm\" -b:a 128K -metadata comment=\"" + URL + "\" -metadata author=\"" + ctx.User.Id + "\" \"" + audioName + ".opus\"",
                 WorkingDirectory = Path.Combine(Directory.GetCurrentDirectory(), "res", "işlenecekler")
             };
             Process ffmpeg = Process.Start(ffmpegStartInfo);
             ffmpeg.WaitForExit();
             ffmpeg.Dispose();
             File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "res", "işlenecekler", audioName + ".webm"));
-            if (File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3")))
+            if (File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".opus")))
             {
-                File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3"));
+                File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".opus"));
             }
 
-            File.Move(Path.Combine(Directory.GetCurrentDirectory(), "res", "işlenecekler", audioName + ".mp3"), Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3"));
+            File.Move(Path.Combine(Directory.GetCurrentDirectory(), "res", "işlenecekler", audioName + ".opus"), Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".opus"));
             Log("ADD: Added " + audioName + " FROM " + URL);
         }
 
@@ -391,17 +391,17 @@ namespace MedicBot
             CommandContext ctx,
             [RemainingText]string audioName)
         {
-            if (File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", ctx.User.Id.ToString(), audioName + ".mp3")))
+            if (File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", ctx.User.Id.ToString(), audioName + ".opus")))
             {
                 await ctx.RespondAsync("\"" + audioName + "\" ses efekti zaten sizin giriş efektiniz olarak kayıtlı.");
                 throw new InvalidOperationException("An audio file with the same name is already added to the user's audio list.");
             }
-            if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3")))
+            if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".opus")))
             {
                 await ctx.RespondAsync("Öyle bir şey yok. ._.");
                 throw new InvalidOperationException("File not found.");
             }
-            File.Copy(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3"), Path.Combine(Directory.GetCurrentDirectory(), "res", ctx.User.Id.ToString(), audioName + ".mp3"));
+            File.Copy(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".opus"), Path.Combine(Directory.GetCurrentDirectory(), "res", ctx.User.Id.ToString(), audioName + ".opus"));
             Log(string.Format("INTRO: {0} set as intro FOR {1}({2})", audioName, ctx.User.Username, ctx.User.Id));
         }
 
@@ -417,7 +417,7 @@ namespace MedicBot
             [Description("Sesin kayıtlardaki adı.")][RemainingText]string audioName)
         {
             Log("EDIT: Edit command triggered BY " + ctx.User.Username + "(" + ctx.User.Id + ") :: " + ctx.Message.Content);
-            if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3")))
+            if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".opus")))
             {
                 await ctx.RespondAsync("Bu isme sahip ses kaydı bulunamadı. Lütfen `#ekle` komutunu kullanın.");
                 throw new InvalidOperationException("The file to edit doesn't exist.");
@@ -441,7 +441,7 @@ namespace MedicBot
             [Description("Sesin kayıtlardaki adı.")][RemainingText]string audioName)
         {
             Log("DELETE: Delete command triggered BY " + ctx.User.Username + "(" + ctx.User.Id + ") :: " + ctx.Message.Content);
-            if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3")))
+            if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".opus")))
             {
                 await ctx.RespondAsync("Öyle bir şey yok. ._.");
                 throw new InvalidOperationException("File to delete not found.");
@@ -451,8 +451,8 @@ namespace MedicBot
                 await ctx.RespondAsync("Bu sesi, sahibi siz olmadığınız için silemezsiniz.");
                 throw new InvalidOperationException("The user trying to delete the file is not the owner of the file.");
             }
-            File.Copy(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3"), Path.Combine(Directory.GetCurrentDirectory(), "res", "trash", audioName + ".mp3")); //Copy and then Delete instead of Move so the Date Created property updates to reflect the date and time the sound file was deleted.
-            File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".mp3")); //Using Move leads to the Date Created and Date Modified properties not change at all.
+            File.Copy(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".opus"), Path.Combine(Directory.GetCurrentDirectory(), "res", "trash", audioName + ".opus")); //Copy and then Delete instead of Move so the Date Created property updates to reflect the date and time the sound file was deleted.
+            File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".opus")); //Using Move leads to the Date Created and Date Modified properties not change at all.
             Log(string.Format("DELETE: FILE {0} deleted BY {1}({2})", audioName, ctx.User.Username, ctx.User.Id));
             await ctx.RespondAsync("🗑️");
         }
@@ -572,7 +572,7 @@ namespace MedicBot
             ProcessStartInfo ffprobeInfo = new ProcessStartInfo()
             {
                 FileName = "ffprobe",
-                Arguments = "-i \"" + audioName + ".mp3\" -v error -of default=noprint_wrappers=1:nokey=1 -hide_banner -show_entries format_tags=author",
+                Arguments = "-i \"" + audioName + ".opus\" -v error -of default=noprint_wrappers=1:nokey=1 -hide_banner -show_entries stream_tags=author",
                 UseShellExecute = false,
                 CreateNoWindow = true,
                 RedirectStandardOutput = true,

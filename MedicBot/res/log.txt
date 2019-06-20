@@ -166,3 +166,98 @@
 24.04.2019 22:15:16 || ADD: Added pillar men short FROM https://youtu.be/XUhVCoTsBaM
 24.04.2019 22:15:31 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/XUhVCoTsBaM 0.8 7.9 pillar men
 24.04.2019 22:15:37 || ADD: Added pillar men FROM https://youtu.be/XUhVCoTsBaM
+5/3/19 2:17:43 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/2k0SmqbBIpQ 2.9 1.7 it's time to stop
+5/3/19 2:17:47 PM || ADD: Added it's time to stop FROM https://youtu.be/2k0SmqbBIpQ
+5/11/19 11:38:10 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/9PWjqgM_CU8 0 1.5 number 15
+5/11/19 11:39:04 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/9PWjqgM_CU8 0 1.5 number 15
+5/11/19 11:41:09 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/9PWjqgM_CU8 0 1.5 number 15
+5/11/19 11:41:12 PM || ADD: Added number 15 FROM https://youtu.be/9PWjqgM_CU8
+5/11/19 11:42:26 PM || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/9PWjqgM_CU8 0.3 1.2 number 15
+5/11/19 11:42:26 PM || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR number 15
+5/11/19 11:42:26 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/9PWjqgM_CU8 0.3 1.2 number 15
+5/11/19 11:42:29 PM || ADD: Added number 15 FROM https://youtu.be/9PWjqgM_CU8
+5/11/19 11:42:44 PM || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/9PWjqgM_CU8 0.2 1.3 number 15
+5/11/19 11:42:44 PM || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR number 15
+5/11/19 11:42:44 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/9PWjqgM_CU8 0.2 1.3 number 15
+5/11/19 11:42:47 PM || ADD: Added number 15 FROM https://youtu.be/9PWjqgM_CU8
+5/11/19 11:45:06 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/9PWjqgM_CU8 1.9 1.6 burger king foot lettuce
+5/11/19 11:45:09 PM || ADD: Added burger king foot lettuce FROM https://youtu.be/9PWjqgM_CU8
+5/12/19 4:47:49 PM || ADD: Add command triggered BY Ozkanozsm(134323487085953025) :: #ekle https://www.youtube.com/watch?v=4lnaldrNDCU 5 2 sen kimsin ya
+5/12/19 4:47:53 PM || ADD: Added sen kimsin ya FROM https://www.youtube.com/watch?v=4lnaldrNDCU
+5/12/19 4:49:04 PM || EDIT: Edit command triggered BY Ozkanozsm(134323487085953025) :: #edit https://www.youtube.com/watch?v=4lnaldrNDCU 5.5 1.5 sen kimsin ya
+5/12/19 4:49:04 PM || EDIT: Command successfully accessed BY Ozkanozsm(134323487085953025) FOR sen kimsin ya
+5/12/19 4:49:04 PM || ADD: Add command triggered BY Ozkanozsm(134323487085953025) :: #ekle https://www.youtube.com/watch?v=4lnaldrNDCU 5.5 1.5 sen kimsin ya
+5/12/19 4:49:07 PM || ADD: Added sen kimsin ya FROM https://www.youtube.com/watch?v=4lnaldrNDCU
+5/12/19 4:49:24 PM || EDIT: Edit command triggered BY Ozkanozsm(134323487085953025) :: #edit https://www.youtube.com/watch?v=4lnaldrNDCU 5.5 1.8 sen kimsin ya
+5/12/19 4:49:24 PM || EDIT: Command successfully accessed BY Ozkanozsm(134323487085953025) FOR sen kimsin ya
+5/12/19 4:49:24 PM || ADD: Add command triggered BY Ozkanozsm(134323487085953025) :: #ekle https://www.youtube.com/watch?v=4lnaldrNDCU 5.5 1.8 sen kimsin ya
+5/12/19 4:49:26 PM || ADD: Added sen kimsin ya FROM https://www.youtube.com/watch?v=4lnaldrNDCU
+6/14/19 11:13:06 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/s-emfSrC4Oc 0 10 bababa
+6/14/19 11:13:11 PM || ADD: Added bababa FROM https://youtu.be/s-emfSrC4Oc
+6/19/19 11:19:03 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/LDU_Txk06tM 75 3 crab rave
+6/19/19 11:19:47 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/LDU_Txk06tM 75 3 crab rave
+6/19/19 11:20:43 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/LDU_Txk06tM 75 3 crab rave
+6/19/19 11:21:14 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/LDU_Txk06tM 75 3 crab rave
+6/19/19 11:21:45 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/LDU_Txk06tM 75 3 crab rave
+6/19/19 11:21:50 PM || ADD: Added crab rave FROM https://youtu.be/LDU_Txk06tM
+6/19/19 11:22:16 PM || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/LDU_Txk06tM 75 4 crab rave
+6/19/19 11:22:16 PM || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR crab rave
+6/19/19 11:22:16 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/LDU_Txk06tM 75 4 crab rave
+6/19/19 11:22:20 PM || ADD: Added crab rave FROM https://youtu.be/LDU_Txk06tM
+6/19/19 11:22:38 PM || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/LDU_Txk06tM 75 3.9 crab rave
+6/19/19 11:22:38 PM || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR crab rave
+6/19/19 11:22:38 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/LDU_Txk06tM 75 3.9 crab rave
+6/19/19 11:22:42 PM || ADD: Added crab rave FROM https://youtu.be/LDU_Txk06tM
+6/19/19 11:22:55 PM || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/LDU_Txk06tM 75 3.8 crab rave
+6/19/19 11:22:55 PM || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR crab rave
+6/19/19 11:22:55 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/LDU_Txk06tM 75 3.8 crab rave
+6/19/19 11:22:59 PM || ADD: Added crab rave FROM https://youtu.be/LDU_Txk06tM
+6/19/19 11:26:32 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/7BxQLITdOOc 73 2 chocolate cake
+6/19/19 11:26:36 PM || ADD: Added chocolate cake FROM https://youtu.be/7BxQLITdOOc
+6/19/19 11:27:03 PM || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/7BxQLITdOOc 73 1.9 chocolate cake
+6/19/19 11:27:03 PM || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR chocolate cake
+6/19/19 11:27:03 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/7BxQLITdOOc 73 1.9 chocolate cake
+6/19/19 11:27:07 PM || ADD: Added chocolate cake FROM https://youtu.be/7BxQLITdOOc
+6/19/19 11:27:19 PM || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/7BxQLITdOOc 73 1.8 chocolate cake
+6/19/19 11:27:19 PM || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR chocolate cake
+6/19/19 11:27:19 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/7BxQLITdOOc 73 1.8 chocolate cake
+6/19/19 11:27:23 PM || ADD: Added chocolate cake FROM https://youtu.be/7BxQLITdOOc
+6/19/19 11:28:57 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/Akwm2UZJ34o 13 1 click
+6/19/19 11:29:00 PM || ADD: Added click FROM https://youtu.be/Akwm2UZJ34o
+6/19/19 11:29:36 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/Akwm2UZJ34o 14 1 click
+6/19/19 11:29:40 PM || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/Akwm2UZJ34o 13 1 click
+6/19/19 11:29:40 PM || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR click
+6/19/19 11:29:40 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/Akwm2UZJ34o 13 1 click
+6/19/19 11:29:44 PM || ADD: Added click FROM https://youtu.be/Akwm2UZJ34o
+6/19/19 11:30:19 PM || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/Akwm2UZJ34o 14 1 click
+6/19/19 11:30:20 PM || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR click
+6/19/19 11:30:20 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/Akwm2UZJ34o 14 1 click
+6/19/19 11:30:23 PM || ADD: Added click FROM https://youtu.be/Akwm2UZJ34o
+6/19/19 11:30:43 PM || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/Akwm2UZJ34o 13.5 1 click
+6/19/19 11:30:43 PM || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR click
+6/19/19 11:30:43 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/Akwm2UZJ34o 13.5 1 click
+6/19/19 11:30:46 PM || ADD: Added click FROM https://youtu.be/Akwm2UZJ34o
+6/19/19 11:31:02 PM || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/Akwm2UZJ34o 14 0.5 click
+6/19/19 11:31:02 PM || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR click
+6/19/19 11:31:02 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/Akwm2UZJ34o 14 0.5 click
+6/19/19 11:31:06 PM || ADD: Added click FROM https://youtu.be/Akwm2UZJ34o
+6/19/19 11:31:29 PM || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/Akwm2UZJ34o 13.5 0.5 click
+6/19/19 11:31:29 PM || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR click
+6/19/19 11:31:29 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/Akwm2UZJ34o 13.5 0.5 click
+6/19/19 11:31:33 PM || ADD: Added click FROM https://youtu.be/Akwm2UZJ34o
+6/19/19 11:31:59 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/Akwm2UZJ34o 14.5 1 noice
+6/19/19 11:32:02 PM || ADD: Added noice FROM https://youtu.be/Akwm2UZJ34o
+6/19/19 11:32:26 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/Akwm2UZJ34o 14.3 1 noice
+6/19/19 11:32:33 PM || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/Akwm2UZJ34o 14.3 1 noice
+6/19/19 11:32:33 PM || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR noice
+6/19/19 11:32:33 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/Akwm2UZJ34o 14.3 1 noice
+6/19/19 11:32:36 PM || ADD: Added noice FROM https://youtu.be/Akwm2UZJ34o
+6/19/19 11:34:37 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/esGl6IbVE1Y 204.5 3 national tragedy
+6/19/19 11:38:37 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/esGl6IbVE1Y 238 1 nine eleven
+6/19/19 11:38:41 PM || ADD: Added nine eleven FROM https://youtu.be/esGl6IbVE1Y
+6/19/19 11:38:54 PM || EDIT: Edit command triggered BY Medic(134336937224830977) :: #edit https://youtu.be/esGl6IbVE1Y 238.5 1 nine eleven
+6/19/19 11:38:54 PM || EDIT: Command successfully accessed BY Medic(134336937224830977) FOR nine eleven
+6/19/19 11:38:54 PM || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/esGl6IbVE1Y 238.5 1 nine eleven
+6/19/19 11:38:58 PM || ADD: Added nine eleven FROM https://youtu.be/esGl6IbVE1Y
+20.06.2019 13:25:04 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/ArBOh3u8D9Y 0 3 deneme
+20.06.2019 13:25:08 || ADD: Added deneme FROM https://youtu.be/ArBOh3u8D9Y
