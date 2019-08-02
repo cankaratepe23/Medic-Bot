@@ -95,6 +95,10 @@ namespace MedicBot
                     //await commands.SudoAsync(medicUser, e.Channel, "#play wrong");
                     await commands.ExecuteCommandAsync(commands.CreateFakeContext(medicUser, e.Guild.Channels.FirstOrDefault(), "#play wrong", "#", commands.RegisteredCommands.Where(c => c.Key == "play").FirstOrDefault().Value, "wrong"));
                 }
+                else if (messageContent.StartsWith("creeper"))
+                {
+                    await e.Channel.SendMessageAsync("Aw man!");
+                }
                 else if (messageContent.Contains("iftara") || messageContent.Contains("akşam ezanına"))
                 {
                     DateTime iftarTime = GetIftarTime();
