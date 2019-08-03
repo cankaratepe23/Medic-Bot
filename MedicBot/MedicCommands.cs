@@ -24,14 +24,15 @@ namespace MedicBot
 
         #region Commands related to connectivity.
         [Command("disconnect")]
-        [Aliases("siktir", "siktirgit", "sg")]
-        [Description("Botu, isteğe göre duygularını inciterek, komple kapatır.")]
+        [Hidden]
+        [Aliases("siktir", "siktirgit", "sg", "dc")]
+        [Description("Botu kapatır.")]
         public async Task Disconnect(CommandContext ctx)
         {
             if (ctx.User.Id != 134336937224830977)
             {
                 DiscordUser medicUser = await ctx.Guild.GetMemberAsync(134336937224830977);
-                await ctx.RespondWithFileAsync(Path.Combine(Directory.GetCurrentDirectory(), "res", "hahaha_no.gif"), "Bu komutu sadece HACKERMAN yani KRAL yani " + medicUser.Mention + " kullanabilir.");
+                await ctx.RespondWithFileAsync(Path.Combine(Directory.GetCurrentDirectory(), "res", "hahaha_no.gif"), "Bu komutu sadece " + medicUser.Mention + " kullanabilir.");
                 return;
             }
             //Log("DISCONNECT: Got disconnect signal.");
@@ -49,7 +50,7 @@ namespace MedicBot
             var voiceNextConnection = voiceNext.GetConnection(ctx.Guild);
             if (voiceNextConnection != null)
             {
-                await ctx.RespondAsync("Buradayız işte lan ne join atıyon");
+                await ctx.RespondAsync(IsSafeServer(ctx.Guild.Id) ? "Bot zaten ses kanalına bağlı" : "Buradayız işte lan ne join atıyon");
                 throw new InvalidOperationException("Already connected, no need to reconnect.");
             }
             if (channelID == 0 && ctx.Member.VoiceState == null)
@@ -78,7 +79,7 @@ namespace MedicBot
             var voiceNextConnection = voiceNext.GetConnection(ctx.Guild);
             if (voiceNextConnection != null)
             {
-                await ctx.RespondAsync("Buradayız işte lan ne join atıyon");
+                await ctx.RespondAsync(IsSafeServer(ctx.Guild.Id) ? "Bot zaten ses kanalına bağlı." : "Buradayız işte lan ne join atıyon");
                 throw new InvalidOperationException("Already connected, no need to reconnect.");
             }
             IEnumerable<DiscordChannel> voiceChannels = ctx.Guild.Channels.Where(ch => ch.Type == DSharpPlus.ChannelType.Voice && ch.Name == channelName);
@@ -147,12 +148,12 @@ namespace MedicBot
             bool disconnectAfterPlaying = false;
             if (fileName != null)
             {
-                filePath = Path.Combine(Directory.GetCurrentDirectory(), "res", fileName + ".opus");
+                filePath = Path.Combine(Directory.GetCurrentDirectory(), "res", IsSafeServer(ctx.Guild.Id) ? "safe" : "" , fileName + ".opus");
             }
             else
             {
                 Random rnd = new Random();
-                string[] allFiles = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res"));
+                string[] allFiles = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res", IsSafeServer(ctx.Guild.Id) ? "safe" : ""));
                 filePath = allFiles[rnd.Next(allFiles.Length)];
             }
             var voiceNext = ctx.Client.GetVoiceNext();
@@ -166,6 +167,11 @@ namespace MedicBot
             if (!File.Exists(filePath))
             {
                 await ctx.RespondAsync("Öyle bir şey yok. ._.");
+                if (disconnectAfterPlaying)
+                {
+                    await Leave(ctx);
+                    voiceNextConnection = null;
+                }
                 throw new InvalidOperationException("File not found.");
             }
 
@@ -226,7 +232,7 @@ namespace MedicBot
             CommandContext ctx,
             [Description("Seslerin içinde aranacak harf/kelime")][RemainingText]string searchString)
         {
-            string[] allFiles = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res"), "*.opus");
+            string[] allFiles = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res", IsSafeServer(ctx.Guild.Id) ? "safe" : ""), "*.opus");
             string response = "```\n";
             if (searchString != null)
             {
@@ -300,7 +306,7 @@ namespace MedicBot
             CommandContext ctx,
             [Description("Sesin kayıtlardaki adı.")][RemainingText]string audioName)
         {
-            if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".opus")))
+            if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", IsSafeServer(ctx.Guild.Id) ? "safe" : "", audioName + ".opus")))
             {
                 await ctx.RespondAsync("Öyle bir şey yok. ._.");
                 throw new InvalidOperationException("File not found.");
@@ -391,6 +397,10 @@ namespace MedicBot
             CommandContext ctx,
             [RemainingText]string audioName)
         {
+            if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", ctx.User.Id.ToString())))
+            {
+                Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "res", ctx.User.Id.ToString()));
+            }
             if (File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "res", ctx.User.Id.ToString(), audioName + ".opus")))
             {
                 await ctx.RespondAsync("\"" + audioName + "\" ses efekti zaten sizin giriş efektiniz olarak kayıtlı.");
@@ -462,7 +472,7 @@ namespace MedicBot
         [Description("Verilen sözcüğü/sözcükleri youtube'da arar ve ilk (X) sonucu yazar.")]
         public async Task Youtube(
             CommandContext ctx,
-            [RemainingText][Description("")] string mainString)
+            [RemainingText][Description("(arama terimi) [sonuç sayısı] şeklinde girilebilir.")] string mainString)
         {
             string searchString;
             VideoSearch items = new VideoSearch();
@@ -524,8 +534,21 @@ namespace MedicBot
         }
 
         [Command("yeniyıl")]
-        public async Task NewYear(CommandContext ctx)
+        [Description("Yeniyıl gerisayımını başlatır! (Saat tam 00:00 olduğunda belirtilen sesi çalar) Lütfen ")]
+        public async Task NewYear(CommandContext ctx, [RemainingText][Description("Çalınacak ses")] string audioName)
         {
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "res", audioName + ".opus");
+            if (!File.Exists(filePath))
+            {
+                await ctx.RespondAsync("Öyle bir şey yok. ._.");
+                throw new InvalidOperationException("File not found.");
+            }
+
+            while (DateTime.Now.Month != 12 || DateTime.Now.Day != 31)
+            {
+                await ctx.RespondAsync("Yılbaşına daha var..");
+                throw new InvalidOperationException("Command triggered on non-eve day.");
+            }
             while (DateTime.Now.Minute != 59)
             {
                 Console.WriteLine("Waiting 5 seconds");
@@ -536,13 +559,13 @@ namespace MedicBot
                 Console.WriteLine("Waiting half a second");
                 System.Threading.Thread.Sleep(500);
             }
-            await Play(ctx, "pezevenk");
+            await Play(ctx, audioName);
         }
 
         [Command("test")]
         public async Task Test(CommandContext ctx)
         {
-            await ctx.Channel.SendMessageAsync(Path.Combine(Directory.GetCurrentDirectory(), "res", "işlenecekler"));
+            await ctx.RespondAsync(Path.Combine(Directory.GetCurrentDirectory(), "res", IsSafeServer(ctx.Guild.Id) ? "safe" : ""));
         }
 
         //[Command("purge")]
@@ -587,6 +610,11 @@ namespace MedicBot
             ffprobe.WaitForExit();
             ffprobe.Dispose();
             return UserId == UId.ToString();
+        }
+
+        public bool IsSafeServer(ulong id)
+        {
+            return File.ReadLines("safe-guilds.txt").Contains(id.ToString());
         }
 
         public void Log(string logString)

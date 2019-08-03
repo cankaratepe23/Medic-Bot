@@ -17,7 +17,7 @@ namespace MedicBot
     {
         // This list was written to handle RythmBot commands but turns out, RyhtmBot ignores bot messages.
         // Maybe test this in the future with Music Bot? Although RyhtmBot is better than MusicBot..
-        // static readonly List<string> bannedWords = new List<string>(File.ReadLines(@"D:\Dan\Discord\MedicBot 2.0\MedicBot\MedicBot\banned_words.txt", System.Text.Encoding.UTF8));
+        // static readonly List<string> bannedWords = new List<string>(File.ReadLines(@"banned_words.txt", System.Text.Encoding.UTF8));
         static List<ulong> alreadyPlayedForUsers = new List<ulong>();
         static DiscordClient discord;
         static CommandsNextExtension commands;
@@ -57,9 +57,14 @@ namespace MedicBot
             timer.Elapsed += Timer_ElapsedAsync;
             timer.Enabled = true;
 
+            if (!File.Exists("safe-guilds.txt"))
+            {
+                File.Create("safe-guilds.txt");
+                File.WriteAllText("safe-guilds.txt", "386570547267502080");
+            }
+
             discord.VoiceStateUpdated += async e =>
             {
-
                 if (voice.GetConnection(e.Guild) != null && e.Channel == voice.GetConnection(e.Guild).Channel) //Remove(d) second check so bot can play audio for itself??   (&& e.User != discord.CurrentUser)
                 {
                     if (voice.GetConnection(e.Guild) != null && !alreadyPlayedForUsers.Contains(e.User.Id))
@@ -89,15 +94,20 @@ namespace MedicBot
                 if (e.Author.Equals(discord.CurrentUser))
                     return;
                 string messageContent = e.Message.Content.ToLower();
-                if (e.Author.Id == 477504775907311619 && e.Message.Content == "wrong")
+                if (e.Author.Id == 477504775907311619 && e.Message.Content == "wrong" && discord.GetVoiceNext().GetConnection(e.Guild) != null)
                 {
                     DiscordUser medicUser = await discord.GetUserAsync(134336937224830977);
                     //await commands.SudoAsync(medicUser, e.Channel, "#play wrong");
-                    await commands.ExecuteCommandAsync(commands.CreateFakeContext(medicUser, e.Guild.Channels.FirstOrDefault(), "#play wrong", "#", commands.RegisteredCommands.Where(c => c.Key == "play").FirstOrDefault().Value, "wrong"));
+                    await commands.ExecuteCommandAsync(commands.CreateFakeContext(medicUser, e.Channel, "#play wrong", "#", commands.RegisteredCommands.Where(c => c.Key == "play").FirstOrDefault().Value, "wrong"));
                 }
                 else if (messageContent.StartsWith("creeper"))
                 {
-                    await e.Channel.SendMessageAsync("Aw man!");
+                    await e.Channel.SendMessageAsync("Aww man!");
+                    if (discord.GetVoiceNext().GetConnection(e.Guild) != null)
+                    {
+                        DiscordUser medicUser = await discord.GetUserAsync(134336937224830977);
+                        await commands.ExecuteCommandAsync(commands.CreateFakeContext(medicUser, e.Channel, "#play aw man", "#", commands.RegisteredCommands.Where(c => c.Key == "play").FirstOrDefault().Value, "aw man"));
+                    }
                 }
                 else if (messageContent.Contains("iftara") || messageContent.Contains("akşam ezanına"))
                 {
