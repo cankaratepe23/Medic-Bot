@@ -59,7 +59,6 @@ namespace MedicBot
 
             if (!File.Exists("safe-guilds.txt"))
             {
-                File.Create("safe-guilds.txt");
                 File.WriteAllText("safe-guilds.txt", "386570547267502080");
             }
 
