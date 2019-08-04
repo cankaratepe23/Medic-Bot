@@ -228,11 +228,17 @@ namespace MedicBot
         #region Commands related to metadata requests.
         [Command("liste")]
         [Description("Botun çalabileceği tüm seslerin listesi. Her zaman günceldir.")]
-        public async Task List( //karakter limitini aşmamak için response'u böl
+        public async Task List(
             CommandContext ctx,
             [Description("Seslerin içinde aranacak harf/kelime")][RemainingText]string searchString)
         {
+            // This method seems retarded at first but it has some thought behind it:
+            // I could filter allFiles to only include the ones that match the searchString, but, I'd have to first turn all the paths in allFiles to filenames only. So in this code, instead of 1 long and
+            // 1 potentially short loop, I just loop once.
+            // It has *some* thought, not a lot.
+            //TODO: Try using the searchString inside the search pattern parameter of the GetFiles method below.                                    searchString goes here?
             string[] allFiles = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res", IsSafeServer(ctx.Guild.Id) ? "safe" : ""), "*.opus");
+            Array.Sort(allFiles);
             string response = "```\n";
             if (searchString != null)
             {
