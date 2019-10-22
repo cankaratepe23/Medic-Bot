@@ -55,7 +55,7 @@ namespace MedicBot
             }
             if (channelID == 0 && ctx.Member.VoiceState == null)
             {
-                voiceNextConnection = await voiceNext.ConnectAsync(ctx.Guild.Channels.Where(ch => ch.Type == DSharpPlus.ChannelType.Voice && ch != ctx.Guild.AfkChannel).OrderBy(ch => ch.Name).FirstOrDefault());
+                voiceNextConnection = await voiceNext.ConnectAsync(ctx.Guild.Channels.Where(ch => ch.Value.Type == DSharpPlus.ChannelType.Voice && ch.Value != ctx.Guild.AfkChannel).OrderBy(ch => ch.Value.Name).FirstOrDefault().Value);
             }
             else if (channelID == 0)
             {
@@ -82,7 +82,7 @@ namespace MedicBot
                 await ctx.RespondAsync(IsSafeServer(ctx.Guild.Id) ? "Bot zaten ses kanalına bağlı." : "Buradayız işte lan ne join atıyon");
                 throw new InvalidOperationException("Already connected, no need to reconnect.");
             }
-            IEnumerable<DiscordChannel> voiceChannels = ctx.Guild.Channels.Where(ch => ch.Type == DSharpPlus.ChannelType.Voice && ch.Name == channelName);
+            IEnumerable<DiscordChannel> voiceChannels = ctx.Guild.Channels.Where(ch => ch.Value.Type == DSharpPlus.ChannelType.Voice && ch.Value.Name == channelName).Select(x => x.Value);
             if (voiceChannels.Count() == 1)
             {
                 voiceNextConnection = await voiceNext.ConnectAsync(voiceChannels.FirstOrDefault());
@@ -180,7 +180,7 @@ namespace MedicBot
                 queuedSongs.Add(Path.GetFileNameWithoutExtension(filePath));
                 return;
             }
-            await voiceNextConnection.SendSpeakingAsync(true);
+            voiceNextConnection.SendSpeaking(true);
             nowPlaying = true;
             await ctx.Client.UpdateStatusAsync(new DiscordActivity(Path.GetFileNameWithoutExtension(filePath), ActivityType.Playing));
 
@@ -193,21 +193,13 @@ namespace MedicBot
             };
             var ffmpeg = Process.Start(psi);
             var ffout = ffmpeg.StandardOutput.BaseStream;
-            var buff = new byte[3840];
-            var br = 0;
-            while ((br = ffout.Read(buff, 0, buff.Length)) > 0)
-            {
-                if (br < buff.Length)
-                {
-                    for (var i = br; i < buff.Length; i++)
-                    {
-                        buff[i] = 0;
-                    }
-                }
+            VoiceTransmitStream transmitStream = voiceNextConnection.GetTransmitStream();
+            await ffout.CopyToAsync(transmitStream);
+            await transmitStream.FlushAsync();
 
-                await voiceNextConnection.SendAsync(buff, 20);
-            }
-            await voiceNextConnection.SendSpeakingAsync(false);
+            await voiceNextConnection.WaitForPlaybackFinishAsync();
+
+            voiceNextConnection.SendSpeaking(false);
             nowPlaying = false;
             if (queuedSongs.Count != 0)
             {
@@ -512,11 +504,11 @@ namespace MedicBot
                 }
                 await ctx.RespondAsync(response);
                 var userSelectionCtx = await interactivity.WaitForMessageAsync(m => m.Author.Id == ctx.Member.Id && int.TryParse(m.Content, out int a) && a <= i);
-                if (userSelectionCtx != null && userSelectionCtx.Message.Content != "0")
+                if (!userSelectionCtx.TimedOut && userSelectionCtx.Result.Content != "0")
                 {
-                    await ctx.RespondAsync(searchResults[Convert.ToInt32(userSelectionCtx.Message.Content) - 1].Url);
+                    await ctx.RespondAsync(searchResults[Convert.ToInt32(userSelectionCtx.Result.Content) - 1].Url);
                 }
-                else if (userSelectionCtx.Message.Content == "0")
+                else if (userSelectionCtx.Result.Content == "0")
                 {
                     await ctx.RespondAsync("Arama isteğiniz iptal edildi. (0 yazdığınız için)");
                 }

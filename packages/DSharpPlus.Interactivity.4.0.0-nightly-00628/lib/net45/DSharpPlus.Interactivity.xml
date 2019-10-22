@@ -1,0 +1,736 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DSharpPlus.Interactivity</name>
+    </assembly>
+    <members>
+        <member name="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1">
+            <summary>
+            Represents a thread-safe hash-based unique collection.
+            </summary>
+            <typeparam name="T">The type of the items in the collection.</typeparam>
+            <remarks>
+            All public members of <see cref="T:ConcurrentCollections.ConcurrentHashSet`1" /> are thread-safe and may be used
+            concurrently from multiple threads.
+            </remarks>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1.Count">
+            <summary>
+            Gets the number of items contained in the <see
+            cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>.
+            </summary>
+            <value>The number of items contained in the <see
+            cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>.</value>
+            <remarks>Count has snapshot semantics and represents the number of items in the <see
+            cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>
+            at the moment when Count was accessed.</remarks>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1.IsEmpty">
+            <summary>
+            Gets a value that indicates whether the <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/> is empty.
+            </summary>
+            <value>true if the <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/> is empty; otherwise,
+            false.</value>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see
+            cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>
+            class that is empty, has the default concurrency level, has the default initial capacity, and
+            uses the default comparer for the item type.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see
+            cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>
+            class that is empty, has the specified concurrency level and capacity, and uses the default
+            comparer for the item type.
+            </summary>
+            <param name="concurrencyLevel">The estimated number of threads that will update the
+            <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/> concurrently.</param>
+            <param name="capacity">The initial number of elements that the <see
+            cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>
+            can contain.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="concurrencyLevel"/> is
+            less than 1.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"> <paramref name="capacity"/> is less than
+            0.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>
+            class that contains elements copied from the specified <see
+            cref="T:System.Collections.IEnumerable{T}"/>, has the default concurrency
+            level, has the default initial capacity, and uses the default comparer for the item type.
+            </summary>
+            <param name="collection">The <see
+            cref="T:System.Collections.IEnumerable{T}"/> whose elements are copied to
+            the new
+            <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="collection"/> is a null reference.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>
+            class that is empty, has the specified concurrency level and capacity, and uses the specified
+            <see cref="T:System.Collections.Generic.IEqualityComparer{T}"/>.
+            </summary>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IEqualityComparer{T}"/>
+            implementation to use when comparing items.</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>
+            class that contains elements copied from the specified <see
+            cref="T:System.Collections.IEnumerable"/>, has the default concurrency level, has the default
+            initial capacity, and uses the specified
+            <see cref="T:System.Collections.Generic.IEqualityComparer{T}"/>.
+            </summary>
+            <param name="collection">The <see
+            cref="T:System.Collections.IEnumerable{T}"/> whose elements are copied to
+            the new
+            <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>.</param>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IEqualityComparer{T}"/>
+            implementation to use when comparing items.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="collection"/> is a null reference
+            (Nothing in Visual Basic).
+            </exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1.#ctor(System.Int32,System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/> 
+            class that contains elements copied from the specified <see cref="T:System.Collections.IEnumerable"/>, 
+            has the specified concurrency level, has the specified initial capacity, and uses the specified 
+            <see cref="T:System.Collections.Generic.IEqualityComparer{T}"/>.
+            </summary>
+            <param name="concurrencyLevel">The estimated number of threads that will update the 
+            <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/> concurrently.</param>
+            <param name="collection">The <see cref="T:System.Collections.IEnumerable{T}"/> whose elements are copied to the new 
+            <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>.</param>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IEqualityComparer{T}"/> implementation to use 
+            when comparing items.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="collection"/> is a null reference.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="concurrencyLevel"/> is less than 1.
+            </exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1.#ctor(System.Int32,System.Int32,System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>
+            class that is empty, has the specified concurrency level, has the specified initial capacity, and
+            uses the specified <see cref="T:System.Collections.Generic.IEqualityComparer{T}"/>.
+            </summary>
+            <param name="concurrencyLevel">The estimated number of threads that will update the
+            <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/> concurrently.</param>
+            <param name="capacity">The initial number of elements that the <see
+            cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>
+            can contain.</param>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IEqualityComparer{T}"/>
+            implementation to use when comparing items.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="concurrencyLevel"/> is less than 1. -or-
+            <paramref name="capacity"/> is less than 0.
+            </exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1.Add(`0)">
+            <summary>
+            Adds the specified item to the <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>.
+            </summary>
+            <param name="item">The item to add.</param>
+            <returns>true if the items was added to the <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>
+            successfully; false if it already exists.</returns>
+            <exception cref="T:System.OverflowException">The <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>
+            contains too many items.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1.Clear">
+            <summary>
+            Removes all items from the <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1.Contains(`0)">
+            <summary>
+            Determines whether the <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/> contains the specified
+            item.
+            </summary>
+            <param name="item">The item to locate in the <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>.</param>
+            <returns>true if the <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/> contains the item; otherwise, false.</returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1.TryRemove(`0)">
+            <summary>
+            Attempts to remove the item from the <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>.
+            </summary>
+            <param name="item">The item to remove.</param>
+            <returns>true if an item was removed successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1.GetEnumerator">
+            <summary>Returns an enumerator that iterates through the <see
+            cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>.</summary>
+            <returns>An enumerator for the <see cref="T:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1"/>.</returns>
+            <remarks>
+            The enumerator returned from the collection is safe to use concurrently with
+            reads and writes to the collection, however it does not represent a moment-in-time snapshot
+            of the collection.  The contents exposed through the enumerator may contain modifications
+            made to the collection after <see cref="M:DSharpPlus.Interactivity.Concurrency.ConcurrentHashSet`1.GetEnumerator"/> was called.
+            </remarks>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.PaginationDeletion.Default">
+            <summary>
+            Defaults to DeleteEmojis
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.PaginationDeletion.DeleteEmojis">
+            <summary>
+            Deletes emojis
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.PaginationDeletion.KeepEmojis">
+            <summary>
+            Keeps emojis
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.PaginationDeletion.DeleteMessage">
+            <summary>
+            Deletes message
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.PaginationBehaviour.Default">
+            <summary>
+            Defaults to WrapAround
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.PaginationBehaviour.WrapAround">
+            <summary>
+            Wraps around indices (e.g. when the index in over the max, loop back to 0)
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.PaginationBehaviour.Ignore">
+            <summary>
+            Disallows moving pas 0 and max indices
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.PollBehaviour.Default">
+            <summary>
+            Defaults to DeleteEmojis
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.PollBehaviour.KeepEmojis">
+            <summary>
+            Keeps emojis
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.PollBehaviour.DeleteEmojis">
+            <summary>
+            Deletes Emojis
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.EventHandling.EventWaiter`1">
+            <summary>
+            Eventwaiter is a class that serves as a layer between the InteractivityExtension
+            and the DiscordClient to listen to an event and check for matches to a predicate.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.EventWaiter`1.#ctor(DSharpPlus.DiscordClient)">
+            <summary>
+            Creates a new Eventwaiter object.
+            </summary>
+            <param name="client">Your DiscordClient</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.EventWaiter`1.WaitForMatch(DSharpPlus.Interactivity.EventHandling.MatchRequest{`0})">
+            <summary>
+            Waits for a match to a specific request, else returns null.
+            </summary>
+            <param name="request">Request to match</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.EventWaiter`1.Dispose">
+            <summary>
+            Disposes this EventWaiter
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.Paginator.#ctor(DSharpPlus.DiscordClient)">
+            <summary>
+            Creates a new Eventwaiter object.
+            </summary>
+            <param name="client">Your DiscordClient</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.Paginator.Dispose">
+            <summary>
+            Disposes this EventWaiter
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.Poller.#ctor(DSharpPlus.DiscordClient)">
+            <summary>
+            Creates a new Eventwaiter object.
+            </summary>
+            <param name="client">Your DiscordClient</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.Poller.Dispose">
+            <summary>
+            Disposes this EventWaiter
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.EventHandling.ReactionCollector">
+            <summary>
+            Eventwaiter is a class that serves as a layer between the InteractivityExtension
+            and the DiscordClient to listen to an event and check for matches to a predicate.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.ReactionCollector.#ctor(DSharpPlus.DiscordClient)">
+            <summary>
+            Creates a new Eventwaiter object.
+            </summary>
+            <param name="client">Your DiscordClient</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.ReactionCollector.Dispose">
+            <summary>
+            Disposes this EventWaiter
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.EventHandling.CollectRequest`1">
+            <summary>
+            CollectRequest is a class that serves as a representation of
+            EventArgs that are being collected within a specific timeframe.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.CollectRequest`1.#ctor(System.Func{`0,System.Boolean},System.TimeSpan)">
+            <summary>
+            Creates a new CollectRequest object.
+            </summary>
+            <param name="predicate">Predicate to match</param>
+            <param name="timeout">Timeout time</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.CollectRequest`1.Dispose">
+            <summary>
+            Disposes this CollectRequest.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.GetPageAsync">
+            <summary>
+            Returns the current page.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.SkipLeftAsync">
+            <summary>
+            Tells the request to set its index to the first page.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.SkipRightAsync">
+            <summary>
+            Tells the request to set its index to the last page.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.NextPageAsync">
+            <summary>
+            Tells the request to increase its index by one.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.PreviousPageAsync">
+            <summary>
+            Tells the request to decrease its index by one.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.GetEmojisAsync">
+            <summary>
+            Requests message emojis from pagination request.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.GetMessageAsync">
+            <summary>
+            Gets pagination message from this request.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.GetUserAsync">
+            <summary>
+            Gets the user this pagination applies to.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.GetTaskCompletionSourceAsync">
+            <summary>
+            Get this request's Task Completion Source.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.DoCleanupAsync">
+            <summary>
+            Tells the request to perform cleanup.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.EventHandling.MatchRequest`1">
+            <summary>
+            MatchRequest is a class that serves as a representation of a
+            match that is being waited for.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.MatchRequest`1.#ctor(System.Func{`0,System.Boolean},System.TimeSpan)">
+            <summary>
+            Creates a new MatchRequest object.
+            </summary>
+            <param name="predicate">Predicate to match</param>
+            <param name="timeout">Timeout time</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.MatchRequest`1.Dispose">
+            <summary>
+            Disposes this MatchRequest.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.PaginationRequest.#ctor(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,DSharpPlus.Interactivity.Enums.PaginationBehaviour,DSharpPlus.Interactivity.Enums.PaginationDeletion,DSharpPlus.Interactivity.PaginationEmojis,System.TimeSpan,DSharpPlus.Interactivity.Page[])">
+            <summary>
+            Creates a new Pagination request
+            </summary>
+            <param name="message">Message to paginate</param>
+            <param name="user">User to allow control for</param>
+            <param name="behaviour">Behaviour during pagination</param>
+            <param name="deletion">Behavior on pagination end</param>
+            <param name="emojis">Emojis for this pagination object</param>
+            <param name="timeout">Timeout time</param>
+            <param name="pages">Pagination pages</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.PaginationRequest.Dispose">
+            <summary>
+            Disposes this PaginationRequest.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.PollRequest.#ctor(DSharpPlus.Entities.DiscordMessage,System.TimeSpan,DSharpPlus.Entities.DiscordEmoji[])">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="timeout"></param>
+            <param name="emojis"></param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.PollRequest.Dispose">
+            <summary>
+            Disposes this PollRequest.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.GetNextMessageAsync(DSharpPlus.Entities.DiscordChannel,System.Func{DSharpPlus.Entities.DiscordMessage,System.Boolean},System.Nullable{System.TimeSpan})">
+            <summary>
+            Returns the next message sent in this channel that matches the predicate.
+            </summary>
+            <param name="c">Channel message was sent in.</param>
+            <param name="predicate">Predicate to match message to.</param>
+            <param name="timeoutoverride">Timeout override.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.GetNextMessageAsync(DSharpPlus.Entities.DiscordChannel,System.Nullable{System.TimeSpan})">
+            <summary>
+            Gets the next message sent in this channel.
+            </summary>
+            <param name="c">Channel message was sent in.</param>
+            <param name="timeoutoverride">Timeout override.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.GetNextMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordMember,System.Nullable{System.TimeSpan})">
+            <summary>
+            Gets the next message sent in this channel by a specific user.
+            </summary>
+            <param name="c">Channel message was sent in.</param>
+            <param name="m">Member message was sent by.</param>
+            <param name="timeoutoverride">Timeout override.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.GetNextMessageAsync(DSharpPlus.Entities.DiscordMessage,System.Nullable{System.TimeSpan})">
+            <summary>
+            Gets the next message with the same channel and user.
+            </summary>
+            <param name="m">Message to follow up.</param>
+            <param name="timeoutoverride">Timeout override.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.GetNextMessageAsync(DSharpPlus.Entities.DiscordMessage,System.Func{DSharpPlus.Entities.DiscordMessage,System.Boolean},System.Nullable{System.TimeSpan})">
+            <summary>
+            Gets the next message with the same channel and user, matching a predicate.
+            </summary>
+            <param name="m">Message to follow up.</param>
+            <param name="predicate">Predicate to match.</param>
+            <param name="timeoutoverride">Timeout override.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.DoPollAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordEmoji[],DSharpPlus.Interactivity.Enums.PollBehaviour,System.Nullable{System.TimeSpan})">
+            <summary>
+            Does a poll on a message
+            </summary>
+            <param name="m">Message to do a poll on.</param>
+            <param name="emojis">Emojis to poll.</param>
+            <param name="behaviour">Poll behaviour.</param>
+            <param name="timeout">Override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.WaitForReactionAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            waits for a reaction on a message.
+            </summary>
+            <param name="m">Message to wait on.</param>
+            <param name="user">User to send a reaction.</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.WaitForReactionAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,DSharpPlus.Entities.DiscordEmoji,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a reaction on a message.
+            </summary>
+            <param name="m">Message to wait on.</param>
+            <param name="user">User to send a reaction.</param>
+            <param name="emoji">Emoji to wait for.</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.WaitForUserTypingAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a user to start typing
+            </summary>
+            <param name="c">Channel user is typing in.</param>
+            <param name="user">User to start typing.</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.CollectReactionsAsync(DSharpPlus.Entities.DiscordMessage,System.Nullable{System.TimeSpan})">
+            <summary>
+            Collects reactions on this messages
+            </summary>
+            <param name="m">Message to collect reactions from</param>
+            <param name="timeoutoverride">Override timeout period</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.SendPaginatedMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,DSharpPlus.Interactivity.Page[],DSharpPlus.Interactivity.PaginationEmojis,DSharpPlus.Interactivity.Enums.PaginationBehaviour,DSharpPlus.Interactivity.Enums.PaginationDeletion,System.Nullable{System.TimeSpan})">
+            <summary>
+            Sends a paginated message
+            </summary>
+            <param name="c">Channel to send message in.</param>
+            <param name="user">User to control pagination.</param>
+            <param name="pages">Pages to send.</param>
+            <param name="emojis">Pagination emojis (emojis set to null will be disabled)</param>
+            <param name="behaviour">Pagination behaviour.</param>
+            <param name="deletion">Deletion behaviour.</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.InteractivityConfiguration">
+            <summary>
+            Configuration class for your Interactivity extension
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.Timeout">
+            <summary>
+            <para>Sets the default interactivity action timeout.</para>
+            <para>Defaults to 1 minute.</para>
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.PollBehaviour">
+            <summary>
+            What to do after the poll ends
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.PaginationEmojis">
+            <summary>
+            Emojis to use for pagination
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.PaginationBehaviour">
+            <summary>
+            How to handle pagination. Defaults to WrapAround.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.PaginationDeletion">
+            <summary>
+            How to handle pagination deletion. Defaults to DeleteEmojis.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityConfiguration.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityConfiguration.#ctor(DSharpPlus.Interactivity.InteractivityConfiguration)">
+            <summary>
+            Creates a new instance of <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>, copying the properties of another configuration.
+            </summary>
+            <param name="other">Configuration the properties of which are to be copied.</param>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.InteractivityExtension">
+            <summary>
+            Extension class for DSharpPlus.Interactivity
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.DoPollAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordEmoji[],DSharpPlus.Interactivity.Enums.PollBehaviour,System.Nullable{System.TimeSpan})">
+            <summary>
+            Makes a poll and returns poll results.
+            </summary>
+            <param name="m">Message to create poll on.</param>
+            <param name="emojis">Emojis to use for this poll.</param>
+            <param name="behaviour">What to do when the poll ends.</param>
+            <param name="timeout">override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync(System.Func{DSharpPlus.Entities.DiscordMessage,System.Boolean},System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a specific message.
+            </summary>
+            <param name="predicate">Predicate to match.</param>
+            <param name="timeoutoverride">override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DSharpPlus.EventArgs.MessageReactionAddEventArgs,System.Boolean},System.Nullable{System.TimeSpan})">
+            <summary>
+            Wait for a specific reaction.
+            </summary>
+            <param name="predicate">Predicate to match.</param>
+            <param name="timeoutoverride">override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Wait for a specific reaction.
+            </summary>
+            <param name="message">Message reaction was added to.</param>
+            <param name="user">User that made the reaction.</param>
+            <param name="timeoutoverride">override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DSharpPlus.EventArgs.MessageReactionAddEventArgs,System.Boolean},DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a specific reaction.
+            </summary>
+            <param name="predicate">Predicate to match.</param>
+            <param name="message">Message reaction was added to.</param>
+            <param name="user">User that made the reaction.</param>
+            <param name="timeoutoverride">override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DSharpPlus.EventArgs.MessageReactionAddEventArgs,System.Boolean},DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a specific reaction.
+            </summary>
+            <param name="predicate">predicate to match.</param>
+            <param name="user">User that made the reaction.</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForUserTypingAsync(DSharpPlus.Entities.DiscordUser,DSharpPlus.Entities.DiscordChannel,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a user to start typing.
+            </summary>
+            <param name="user">User that starts typing.</param>
+            <param name="channel">Channel the user is typing in.</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForUserTypingAsync(DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a user to start typing.
+            </summary>
+            <param name="user">User that starts typing.</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForTypingAsync(DSharpPlus.Entities.DiscordChannel,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for any user to start typing.
+            </summary>
+            <param name="channel">Channel to type in.</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.CollectReactionsAsync(DSharpPlus.Entities.DiscordMessage,System.Nullable{System.TimeSpan})">
+            <summary>
+            Collects reactions on a specific message.
+            </summary>
+            <param name="m">Message to colelct reactions on.</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForEventArgsAsync``1(System.Func{``0,System.Boolean},System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for specific event args to be received
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="predicate"></param>
+            <param name="timeoutoverride"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},DSharpPlus.Interactivity.PaginationEmojis,DSharpPlus.Interactivity.Enums.PaginationBehaviour,DSharpPlus.Interactivity.Enums.PaginationDeletion,System.Nullable{System.TimeSpan})">
+            <summary>
+            Sends a paginated message.
+            </summary>
+            <param name="c">Channel to send paginated message in.</param>
+            <param name="u">User to give control.</param>
+            <param name="pages">Pages.</param>
+            <param name="emojis">Pagination emojis (emojis set to null get disabled).</param>
+            <param name="behaviour">Pagination behaviour (when hitting max and min indices).</param>
+            <param name="deletion">Deletion behaviour.</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForCustomPaginationAsync(DSharpPlus.Interactivity.EventHandling.IPaginationRequest)">
+            <summary>
+            Waits for a custom pagination request to finish.
+            This does NOT handle removing emojis after finishing for you.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInContent(System.String,DSharpPlus.Interactivity.SplitType)">
+            <summary>
+            Generates pages from a string, and puts them in message content.
+            </summary>
+            <param name="input">Input string.</param>
+            <param name="splittype">How to split input string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInEmbed(System.String,DSharpPlus.Interactivity.SplitType,DSharpPlus.Entities.DiscordEmbedBuilder)">
+            <summary>
+            Generates pages from a string, and puts them in message embeds.
+            </summary>
+            <param name="input">Input string.</param>
+            <param name="splittype">How to split input string.</param>
+            <param name="embedbase">Base embed for output embeds.</param>
+            <returns></returns>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.SplitType">
+            <summary>
+            Way to split strings.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.SplitType.Character">
+            <summary>
+            Splits string per 500 characters.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.SplitType.Line">
+            <summary>
+            Splits string per 15 lines.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.InteractivityResult`1">
+            <summary>
+            Interactivity result
+            </summary>
+            <typeparam name="T">Type of result</typeparam>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityResult`1.TimedOut">
+            <summary>
+            Whether interactivity was timed out
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityResult`1.Result">
+            <summary>
+            Result
+            </summary>
+        </member>
+    </members>
+</doc>

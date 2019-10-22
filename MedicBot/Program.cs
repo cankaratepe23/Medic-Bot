@@ -50,6 +50,7 @@ namespace MedicBot
             // EnableIncoming = true increases CPU usage and is not being used until Speech Recognition can be handled easily.
             voice = discord.UseVoiceNext(new VoiceNextConfiguration
             {
+                AudioFormat = new AudioFormat(48000, 2, VoiceApplication.LowLatency),
                 EnableIncoming = false
             });
 
@@ -78,7 +79,7 @@ namespace MedicBot
                         string audioFile = Path.GetFileNameWithoutExtension(userSpecificFiles[rnd.Next(0, userSpecificFiles.Count)]);
                         await Task.Delay(1000);
                         //await commands.SudoAsync(medicUser, e.Guild.Channels.FirstOrDefault(), "#play " + audioFile);
-                        await commands.ExecuteCommandAsync(commands.CreateFakeContext(medicUser, e.Guild.Channels.FirstOrDefault(), "#play " + audioFile, "#", commands.RegisteredCommands.Where(c => c.Key == "play").FirstOrDefault().Value, audioFile));
+                        await commands.ExecuteCommandAsync(commands.CreateFakeContext(medicUser, e.Guild.Channels.FirstOrDefault().Value, "#play " + audioFile, "#", commands.RegisteredCommands.Where(c => c.Key == "play").FirstOrDefault().Value, audioFile));
                         alreadyPlayedForUsers.Add(e.User.Id);
                     }
                 }
@@ -190,7 +191,7 @@ namespace MedicBot
             // We reached the tick time.
             Random rnd = new Random();
             DiscordUser medicUser = discord.GetUserAsync(134336937224830977).Result;
-            commands.ExecuteCommandAsync(commands.CreateFakeContext(medicUser, discord.GetGuildAsync(463052720509812736).Result.Channels.FirstOrDefault(), "#play", "#", commands.RegisteredCommands.Where(c => c.Key == "play").FirstOrDefault().Value));
+            commands.ExecuteCommandAsync(commands.CreateFakeContext(medicUser, discord.GetGuildAsync(463052720509812736).Result.Channels.FirstOrDefault().Value, "#play", "#", commands.RegisteredCommands.Where(c => c.Key == "play").FirstOrDefault().Value));
             int spanToNext = rnd.Next(300000, 86400000);
             nextTick = DateTime.UtcNow.Add(TimeSpan.FromMilliseconds(spanToNext));
             File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "res", "timer.txt"), nextTick.ToString("dd.MM.yyyy HH:mm:ss"));
