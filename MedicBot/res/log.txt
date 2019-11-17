@@ -263,3 +263,5 @@
 20.06.2019 13:25:08 || ADD: Added deneme FROM https://youtu.be/ArBOh3u8D9Y
 4.08.2019 01:28:08 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/NeI-1Aq5CJw 6.5 1.5 aw man
 4.08.2019 01:28:16 || ADD: Added aw man FROM https://youtu.be/NeI-1Aq5CJw
+26.10.2019 01:15:28 || ADD: Add command triggered BY Medic(134336937224830977) :: #ekle https://youtu.be/xzpndHtdl9A 0 3 it's only game
+26.10.2019 01:15:49 || ADD: Added it's only game FROM https://youtu.be/xzpndHtdl9A

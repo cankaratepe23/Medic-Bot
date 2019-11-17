@@ -153,7 +153,7 @@ namespace MedicBot
             else
             {
                 Random rnd = new Random();
-                string[] allFiles = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res", IsSafeServer(ctx.Guild.Id) ? "safe" : ""));
+                string[] allFiles = GetAllFiles(ctx.Guild.Id);
                 filePath = allFiles[rnd.Next(allFiles.Length)];
             }
             var voiceNext = ctx.Client.GetVoiceNext();
@@ -229,7 +229,7 @@ namespace MedicBot
             // 1 potentially short loop, I just loop once.
             // It has *some* thought, not a lot.
             //TODO: Try using the searchString inside the search pattern parameter of the GetFiles method below.                                    searchString goes here?
-            string[] allFiles = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res", IsSafeServer(ctx.Guild.Id) ? "safe" : ""), "*.opus");
+            string[] allFiles = GetAllFiles(ctx.Guild.Id);
             Array.Sort(allFiles);
             string response = "```\n";
             if (searchString != null)
@@ -239,12 +239,12 @@ namespace MedicBot
             int fileAddedToResponseCount = 0;
             foreach (string file in allFiles)
             {
-                DateTime modifiedDate = File.GetLastWriteTime(file); //use GetLastWriteTime to get the date the file was first download. this date is not affected by deletion, unlike GetCreationTime.
+                DateTime modifiedDate = File.GetLastWriteTimeUtc(file); //use GetLastWriteTime to get the date the file was first download. this date is not affected by deletion, unlike GetCreationTime.
                 TimeSpan fileAge = DateTime.Now - modifiedDate;
                 string fileOnly = Path.GetFileNameWithoutExtension(file);
                 if (searchString == null || fileOnly.Contains(searchString))
                 {
-                    if (fileAge > TimeSpan.FromDays(2))
+                    if (fileAge > TimeSpan.FromDays(7))
                     {
                         response += "[ • ] " + fileOnly + "\n";
                     }
@@ -560,6 +560,26 @@ namespace MedicBot
             await Play(ctx, audioName);
         }
 
+        [Command("news")]
+        [Description("En son eklenen sesleri gösterir.")]
+        public async Task News(CommandContext ctx, [Description("Gösterilecek yeni ses sayısı.")]int count = 10)
+        {
+            if (count > 20)
+            {
+                await ctx.RespondAsync("Çok fazla ses istedin.");
+                throw new InvalidOperationException("Count was entered too high in News command.");
+            }
+            string[] allFiles = GetAllFiles(ctx.Guild.Id);
+            allFiles = allFiles.OrderByDescending(f => File.GetLastWriteTimeUtc(f)).ToArray();
+            string msg = "```\n";
+            for (int i = 0; i < count; i++)
+            {
+                msg += Path.GetFileNameWithoutExtension(allFiles[i]) + "\n";
+            }
+            msg += "```";
+            await ctx.RespondAsync(msg);
+        }
+
         [Command("test")]
         public async Task Test(CommandContext ctx)
         {
@@ -608,6 +628,11 @@ namespace MedicBot
             ffprobe.WaitForExit();
             ffprobe.Dispose();
             return UserId == UId.ToString();
+        }
+
+        public string[] GetAllFiles(ulong id)
+        {
+            return Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "res", IsSafeServer(id) ? "safe" : ""), "*.opus");
         }
 
         public bool IsSafeServer(ulong id)
