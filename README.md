@@ -1,4 +1,6 @@
 # Medic-Bot || A (very painful) DSharpPlus Bot
+This repo is no longer maintained. You can find the newest source at [the new, .NET CORE based repo.](https://github.com/Mmedic23/Medic-Bot_CORE) The codebase is exactly the same. It was pointless to maintain two repos containing the same code.
+
 If you want to run this bot on your own machine (for some reason?), you can clone this repo, or [the pre-built binaries](https://github.com/Mmedic23/MedicBotCoreReleases).
 
 The source is targeted for .NET Framework v4.7.2, but I don't think you need the csproj files, you should be able to create your own project for whatever version you have installed and the source code should work fine.
